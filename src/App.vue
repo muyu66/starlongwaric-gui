@@ -2,7 +2,7 @@
     <div id="app">
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1">
-                <top_bar></top_bar>
+                <topbar></topbar>
             </div>
         </transition>
         <button @click="show1 = !show1" style="position: absolute; top: 40%">

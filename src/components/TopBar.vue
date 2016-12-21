@@ -1,5 +1,5 @@
 <template>
-    <ul class="list-inline" id="top_bar">
+    <ul class="list-inline" id="topbar">
         <li>
             <button type="button" class="btn btn-default btn-lg">我的舰队</button>
         </li>
@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: 'top_bar',
+        name: 'topbar',
     }
 </script>
 
