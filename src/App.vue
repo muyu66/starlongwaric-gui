@@ -1,11 +1,11 @@
 <template>
     <div id="app">
-        <button @click="show1 = !show1">
-            Toggle render
-        </button>
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1"></div>
         </transition>
+        <button @click="show1 = !show1">
+            Toggle render
+        </button>
         <button @click="show2 = !show2">
             Toggle render
         </button>
@@ -49,7 +49,7 @@
 
     #dash_bot {
         background-color: aqua;
-        position: absolute;
+        position: relative;
         bottom: 0;
         height: 20%;
         width: 100%;
@@ -64,7 +64,6 @@
     }
 
     .slide-fade-enter, .slide-fade-leave-active {
-        transform: translateY(10px);
         opacity: 0;
     }
 </style>
