@@ -2,15 +2,15 @@
     <div id="app">
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1">
-                <ul>
+                <ul class="list-inline">
                     <li>
-                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
                     </li>
                 </ul>
             </div>
