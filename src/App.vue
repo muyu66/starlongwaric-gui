@@ -1,7 +1,13 @@
 <template>
     <div id="app">
         <transition name="slide-fade">
-            <div id='dash_top' v-if="show1"></div>
+            <div id='dash_top' v-if="show1">
+                <ul>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                </ul>
+            </div>
         </transition>
         <button @click="show1 = !show1" style="position: absolute; top: 40%">
             Toggle render
@@ -30,8 +36,8 @@
 
 <style>
     #app {
-        color: black;
-        background-color: white;
+        color: white;
+        background-color: black;
         position: absolute;
         height: 100%;
         top: 0;
@@ -60,7 +66,7 @@
     }
 
     .slide-fade-leave-active {
-        transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        transition: all .3s ease;
     }
 
     .slide-fade-enter, .slide-fade-leave-active {
