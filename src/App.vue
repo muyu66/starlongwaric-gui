@@ -3,10 +3,10 @@
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1"></div>
         </transition>
-        <button @click="show1 = !show1">
+        <button @click="show1 = !show1" style="z-index: 1">
             Toggle render
         </button>
-        <button @click="show2 = !show2">
+        <button @click="show2 = !show2" style="z-index: 1;">
             Toggle render
         </button>
         <transition name="slide-fade">
@@ -45,7 +45,6 @@
         top: 0;
         height: 20%;
         width: 100%;
-        z-index: 0;
     }
 
     #dash_bot {
@@ -54,7 +53,6 @@
         bottom: 0;
         height: 20%;
         width: 100%;
-        z-index: 0;
     }
 
     .slide-fade-enter-active {
