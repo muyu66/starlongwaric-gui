@@ -2,7 +2,7 @@
     <div id="app">
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1">
-                <menu></menu>
+                <top_bar></top_bar>
             </div>
         </transition>
         <button @click="show1 = !show1" style="position: absolute; top: 40%">
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import Menu from './components/Menu'
+    import TopBar from './components/TopBar'
     export default {
         name: 'app',
         data () {
@@ -28,7 +28,7 @@
             }
         },
         components: {
-            Menu,
+            TopBar,
         },
     }
 </script>
