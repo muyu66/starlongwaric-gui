@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import TopBar from './components/TopBar'
+    import Topbar from './components/Topbar'
     export default {
         name: 'app',
         data () {
@@ -28,7 +28,7 @@
             }
         },
         components: {
-            TopBar,
+            Topbar,
         },
     }
 </script>
