@@ -3,9 +3,15 @@
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1">
                 <ul>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
+                    <li>
+                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-default btn-lg">Large button</button>
+                    </li>
                 </ul>
             </div>
         </transition>
