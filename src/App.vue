@@ -1,12 +1,12 @@
 <template>
     <div id="app">
         <!--<div id='dash_bot'></div>-->
-        <transition name="slide-fade">
-            <p v-if="show">hello</p>
-        </transition>
         <button @click="show = !show">
             Toggle render
         </button>
+        <transition name="slide-fade">
+            <p v-if="show">hello</p>
+        </transition>
     </div>
 </template>
 
@@ -23,7 +23,7 @@
 <style>
     #app {
         color: white;
-        background-color: black;
+        background-color: white;
         position: absolute;
         height: 100%;
         top: 0;
