@@ -45,7 +45,7 @@
         top: 0;
         height: 20%;
         width: 100%;
-        z-index: 1;
+        z-index: -1;
     }
 
     #dash_bot {
@@ -54,7 +54,7 @@
         bottom: 0;
         height: 20%;
         width: 100%;
-        z-index: 1;
+        z-index: 0;
     }
 
     .slide-fade-enter-active {
