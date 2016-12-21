@@ -1,10 +1,10 @@
 <template>
     <div id="app">
         <!--<div id='dash_bot'></div>-->
-        <button v-on:click="show = !show">
-            Toggle
+        <button @click="show = !show">
+            Toggle render
         </button>
-        <transition name="fade">
+        <transition name="slide-fade">
             <p v-if="show">hello</p>
         </transition>
     </div>
@@ -14,8 +14,10 @@
     //    import Hello from './components/Hello'
     export default {
         name: 'app',
-        data: {
-            show: true,
+        data () {
+            return {
+                show: true,
+            }
         },
     }
 </script>
