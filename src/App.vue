@@ -3,10 +3,10 @@
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1"></div>
         </transition>
-        <button @click="show1 = !show1" style="z-index: 1">
+        <button @click="show1 = !show1" style="z-index: 4000">
             Toggle render
         </button>
-        <button @click="show2 = !show2" style="z-index: 1;">
+        <button @click="show2 = !show2" style="z-index: 3000;">
             Toggle render
         </button>
         <transition name="slide-fade">
