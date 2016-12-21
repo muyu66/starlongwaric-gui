@@ -41,7 +41,7 @@
 
     #dash_top {
         background-color: coral;
-        position: relative;
+        position: absolute;
         top: 0;
         height: 20%;
         width: 100%;
@@ -49,7 +49,7 @@
 
     #dash_bot {
         background-color: aqua;
-        position: relative;
+        position: absolute;
         bottom: 0;
         height: 20%;
         width: 100%;
