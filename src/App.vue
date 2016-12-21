@@ -5,7 +5,7 @@
             Toggle render
         </button>
         <transition name="slide-fade">
-            <p v-if="show">hello</p>
+            <p v-if="show">helaaaaaaaaaaaaaalo</p>
         </transition>
     </div>
 </template>
