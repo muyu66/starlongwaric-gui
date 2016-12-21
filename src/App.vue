@@ -1,11 +1,10 @@
 <template>
     <div id="app">
-        <!--<div id='dash_bot'></div>-->
         <button @click="show = !show">
             Toggle render
         </button>
         <transition name="slide-fade">
-            <p v-if="show">hello</p>
+            <div id='dash_bot' v-if="show"></div>
         </transition>
     </div>
 </template>
