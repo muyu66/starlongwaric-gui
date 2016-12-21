@@ -2,7 +2,7 @@
     <div id="app">
         <!--<div id='dash_bot'></div>-->
         <transition name="slide-fade">
-            <div id='dash_top' v-if="show">aaaaaaaa</div>
+            <p v-if="show">hello</p>
         </transition>
         <button @click="show = !show">
             Toggle render
