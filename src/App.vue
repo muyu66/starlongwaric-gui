@@ -5,20 +5,24 @@
                 <topbar></topbar>
             </div>
         </transition>
+        <transition name="slide-fade">
+            <div id='dash_bot' v-if="show2">
+                <botbar></botbar>
+            </div>
+        </transition>
         <button @click="show1 = !show1" style="position: absolute; top: 40%">
             Toggle render
         </button>
         <button @click="show2 = !show2" style="position: absolute; top: 50%">
             Toggle render
         </button>
-        <transition name="slide-fade">
-            <div id='dash_bot' v-if="show2"></div>
-        </transition>
     </div>
 </template>
 
 <script>
     import Topbar from './components/Topbar'
+    import Botbar from './components/Botbar'
+
     export default {
         name: 'app',
         data () {
@@ -28,7 +32,7 @@
             }
         },
         components: {
-            Topbar,
+            Topbar, Botbar,
         },
     }
 </script>
