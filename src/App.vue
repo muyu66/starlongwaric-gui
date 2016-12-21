@@ -45,7 +45,7 @@
         top: 0;
         height: 20%;
         width: 100%;
-        z-index: -1;
+        z-index: 0;
     }
 
     #dash_bot {
@@ -62,7 +62,7 @@
     }
 
     .slide-fade-leave-active {
-        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
 
     .slide-fade-enter, .slide-fade-leave-active {
