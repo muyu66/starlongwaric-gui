@@ -1,15 +1,14 @@
 <template>
     <div id="app">
         <!--<div id='dash_bot'></div>-->
-        <button @click="show = !show">
-            Toggle render
-        </button>
         <transition name="slide-fade">
             <p v-if="show">
             <div id='dash_top'></div>
             </p>
         </transition>
-
+        <button @click="show = !show">
+            Toggle render
+        </button>
     </div>
 </template>
 
@@ -36,7 +35,7 @@
 
     #dash_top {
         background-color: coral;
-        position: absolute;
+        position: relative;
         top: 0;
         height: 20%;
         width: 100%;
