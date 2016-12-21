@@ -22,7 +22,7 @@
 
 <style>
     #app {
-        color: white;
+        color: black;
         background-color: white;
         position: absolute;
         height: 100%;
