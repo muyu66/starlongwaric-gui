@@ -2,17 +2,7 @@
     <div id="app">
         <transition name="slide-fade">
             <div id='dash_top' v-if="show1">
-                <ul class="list-inline">
-                    <li>
-                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-default btn-lg">我的舰队</button>
-                    </li>
-                </ul>
+                <menu></menu>
             </div>
         </transition>
         <button @click="show1 = !show1" style="position: absolute; top: 40%">
@@ -28,14 +18,17 @@
 </template>
 
 <script>
-    //    import Hello from './components/Hello'
+    import Menu from './components/Menu'
     export default {
         name: 'app',
         data () {
             return {
-                show1: true,
-                show2: true,
+                show1: false,
+                show2: false,
             }
+        },
+        components: {
+            Menu,
         },
     }
 </script>
