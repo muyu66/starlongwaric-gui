@@ -1,10 +1,16 @@
 <template>
     <div id="app">
-        <button @click="show = !show">
+        <button @click="show1 = !show1">
             Toggle render
         </button>
         <transition name="slide-fade">
-            <div id='dash_bot' v-if="show"></div>
+            <div id='dash_top' v-if="show1"></div>
+        </transition>
+        <button @click="show2 = !show2">
+            Toggle render
+        </button>
+        <transition name="slide-fade">
+            <div id='dash_bot' v-if="show2"></div>
         </transition>
     </div>
 </template>
@@ -15,7 +21,8 @@
         name: 'app',
         data () {
             return {
-                show: true,
+                show1: true,
+                show2: true,
             }
         },
     }
@@ -57,7 +64,7 @@
     }
 
     .slide-fade-enter, .slide-fade-leave-active {
-        transform: translateX(10px);
+        transform: translateY(10px);
         opacity: 0;
     }
 </style>
