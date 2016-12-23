@@ -29,17 +29,18 @@
     }
 
     .button {
-        width: 8rem;
+        width: 10rem;
         height: 10rem;
         text-align: center;
         cursor: default;
         box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
         border: 1px solid rgba(127, 255, 255, 0.25);
         background-color: rgba(0, 127, 127, 0.298039);
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: bold;
         color: rgba(255, 255, 255, 0.75);
         text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
+
     }
 
     .button:hover {
