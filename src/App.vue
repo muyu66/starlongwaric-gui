@@ -3,6 +3,7 @@
 </template>
 
 <script>
+    import VueRouter from 'vue-router'
     import Login from './pages/Login'
     import Index from './pages/Index'
 
