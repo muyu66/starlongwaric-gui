@@ -49,7 +49,7 @@
     }
 
     #dash_top {
-        background-color: black;
+        background-color: coral;
         position: absolute;
         top: 0;
         height: 20%;
