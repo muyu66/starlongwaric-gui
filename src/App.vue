@@ -3,7 +3,8 @@
 </template>
 
 <script>
-    import Route from './Route'
+    import Login from './pages/Login'
+    import Index from './pages/Index'
 
     const routes = [
         {path: '/login', component: Login},
@@ -16,6 +17,7 @@
 
     export default {
         name: 'app',
+        router,
     }
 </script>
 
