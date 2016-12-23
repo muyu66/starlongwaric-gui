@@ -28,6 +28,10 @@
         box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
         border: 1px solid rgba(127, 255, 255, 0.25);
         background-color: rgba(0, 127, 127, 0.298039);
+        font-size: 60px;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
     }
 
     .button:hover {
