@@ -40,7 +40,7 @@
 <style>
     #app {
         color: white;
-        background-color: black;
+        background-color: gray;
         position: absolute;
         height: 100%;
         top: 0;
@@ -49,7 +49,7 @@
     }
 
     #dash_top {
-        background-color: coral;
+        background-color: black;
         position: absolute;
         top: 0;
         height: 20%;
