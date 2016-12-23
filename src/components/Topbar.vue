@@ -20,8 +20,9 @@
 
 <style scoped>
     .button {
-        width: 100px;
-        height: 100px;
+        position: relative;
+        width: 100%;
+        height: 100%;
         margin: 0 auto;
         text-align: center;
         cursor: default;
