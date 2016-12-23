@@ -1,7 +1,7 @@
 <template>
-    <ul class="list-inline" id="topbar">
+    <ul class="list-inline full" id="topbar">
         <li>
-            <button type="button" class="" style="height: 100%;width: 100%">舰队</button>
+            <button type="button" class="button">舰队</button>
         </li>
         <li>
             <button type="button" class="button">舰队</button>
@@ -19,11 +19,17 @@
 </script>
 
 <style scoped>
-    .button {
+    .full {
         position: relative;
         width: 100%;
         height: 100%;
         margin: 0 auto;
+
+    }
+
+    .button {
+        width: 10rem;
+        height: 10rem;
         text-align: center;
         cursor: default;
         box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
