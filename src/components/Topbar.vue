@@ -21,7 +21,7 @@
 <style scoped>
     .menu {
         width: 100px;
-        height: 100px;
+        height: 50%;
         background-color: rgba(0, 127, 127, 0.313726);
         transform: translate3d(-50%, -50%, 0px) matrix3d(1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, -800, 400, 2000, 1);
     }
