@@ -26,6 +26,7 @@
         margin: 0 auto;
         align-items: center;
         display: -webkit-flex;
+        justify-content: center;
     }
 
     .button {
@@ -46,6 +47,6 @@
     .button:hover {
         background-color: rgba(0, 127, 127, 0.709804);
         box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
-        border: 1px solid rgba(127, 255, 255, 0.75);
+        border: 1px solid rgba(127, 255, 255, 0.25);
     }
 </style>
