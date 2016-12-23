@@ -39,6 +39,7 @@
 
 <style>
     #app {
+        font-size: 62.5%;
         color: white;
         background-color: gray;
         position: absolute;
