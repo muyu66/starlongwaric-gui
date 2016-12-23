@@ -4,10 +4,11 @@
     </div>
 </template>
 <script>
-    import Index from './pages/Index'
+    //    import Index from './pages/Index'
+    import BotBar from './components/Botbar'
     export default {
         components: {
-            Index
+            BotBar
         }
     }
 </script>
