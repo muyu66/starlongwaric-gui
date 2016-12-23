@@ -41,7 +41,7 @@
         font-weight: bold;
         color: rgba(255, 255, 255, 0.75);
         text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
-        margin-right: 1rem;
+        margin: 0 1rem 0 1rem;
     }
 
     .button:hover {

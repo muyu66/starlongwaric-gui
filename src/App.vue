@@ -41,7 +41,7 @@
     #app {
         font-size: 62.5%;
         color: white;
-        background-color: gray;
+        background-color: black;
         position: absolute;
         height: 100%;
         top: 0;
