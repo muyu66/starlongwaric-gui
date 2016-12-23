@@ -2,10 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-Vue.use(VueRouter)
-
 import Index from './pages/Index'
 import Login from './pages/Login'
+
+Vue.use(VueRouter)
 
 const router = new VueRouter({
     routes: [
@@ -22,4 +22,4 @@ const router = new VueRouter({
 
 new Vue({
     router,
-}).$mount('#app')
+}).$mount('#index')
