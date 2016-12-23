@@ -58,7 +58,7 @@
     }
 
     #dash_bot {
-        background-color: aqua;
+        background-color: black;
         position: absolute;
         bottom: 0;
         height: 20%;
