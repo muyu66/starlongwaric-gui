@@ -28,8 +28,6 @@
         box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
         border: 1px solid rgba(127, 255, 255, 0.25);
         background-color: rgba(0, 127, 127, 0.298039);
-        z-index: 4000;
-        transform: translate3d(-50%, -50%, 0px) matrix3d(1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 490, -90, 0, 1);
     }
 
     .button:hover {
