@@ -1,5 +1,4 @@
 <template>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
     <div id="app">
@@ -13,16 +12,16 @@
 </template>
 
 <script>
-    import Login from './pages/Login'
-    import Index from './pages/Index'
+    const Foo = {template: '<div>foo</div>'}
+    const Bar = {template: '<div>bar</div>'}
 
     const routes = [
-        {path: '/login', component: Login},
-        {path: '/index', component: Index}
+        {path: '/foo', component: Foo},
+        {path: '/bar', component: Bar}
     ]
 
     const router = new VueRouter({
-        routes: routes,
+        routes // （缩写）相当于 routes: routes
     })
 
     export default {
