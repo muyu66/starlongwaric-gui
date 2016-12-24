@@ -1,7 +1,6 @@
 <template>
     <div id="topbar" class="full">
         玩家状态
-        <router-link to="/login">Go to Foo</router-link>
     </div>
 </template>
 
