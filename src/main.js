@@ -12,6 +12,10 @@ const router = new VueRouter({
     base: __dirname,
     routes: [
         {
+            path: '/',
+            component: Index
+        },
+        {
             path: '/login',
             component: Login
         },
