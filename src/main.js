@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import App from './App'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+Vue.use(VueResource);
+
 import Index from './pages/Index'
 import Login from './pages/Login'
 
@@ -28,4 +31,4 @@ const router = new VueRouter({
 new Vue({
     router: router,
     render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
