@@ -8,13 +8,20 @@
     export default {
         name: 'topbar',
         ready() {
-            this.$http.get('//127.0.0.1:81/auth/user').then((response) => {
-                console.log('aaa');
-                console.log(response);
-            }, (response) => {
-                console.log(response);
-            });
+            alert('aaa');
+            getAuthUser();
+        },
+        methods: {
+            getAuthUser: function () {
+                this.$http.get('//127.0.0.1:81/auth/user').then((response) => {
+                    console.log('aaa');
+                    console.log(response);
+                }, (response) => {
+                    console.log(response);
+                });
+            }
         }
+        ,
     }
 </script>
 
