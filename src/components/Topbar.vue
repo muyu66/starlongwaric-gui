@@ -1,16 +1,12 @@
 <template>
     <div id="topbar" class="full">
-        玩家状态
+        <a v-on:click="getAuthUser">玩家状态</a>
     </div>
 </template>
 
 <script>
     export default {
         name: 'topbar',
-        ready() {
-            alert('aaa');
-            getAuthUser();
-        },
         methods: {
             getAuthUser: function () {
                 this.$http.get('//127.0.0.1:81/auth/user').then((response) => {
