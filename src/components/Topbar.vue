@@ -7,6 +7,13 @@
 <script>
     export default {
         name: 'topbar',
+        ready() {
+            this.$http.get('//127.0.0.1:81/auth/user').then((response) => {
+                console.log(response);
+            }, (response) => {
+                console.log(response);
+            });
+        }
     }
 </script>
 
