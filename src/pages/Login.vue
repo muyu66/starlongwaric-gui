@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         登录页
-        <div v-html="rawHtml"></div>
+        <div>{{ rawHtml }}</div>
     </div>
 </template>
 
