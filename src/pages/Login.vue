@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         登录页
-        <img v-bind:src="img_code" v-on:click="getAuthCode()"/>
+        <div v-html="rawHtml"></div>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
         methods: {
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                    this.img_code = response;
+                    this.rawHtml = response;
                 }, (response) => {
                 });
             }
