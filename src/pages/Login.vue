@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         登录页
-        <div>{{ rawHtml }}</div>
+        <div>{{ getAuthCode() }}</div>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
         methods: {
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                    this.rawHtml = response;
+                    return response;
                 }, (response) => {
                 });
             }
