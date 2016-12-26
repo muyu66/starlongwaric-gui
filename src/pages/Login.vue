@@ -8,9 +8,6 @@
 <script>
     export default {
         name: 'login',
-        created: function () {
-            this.getAuthCode()
-        },
         methods: {
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
