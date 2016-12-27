@@ -1,7 +1,5 @@
 <template>
-    <div id="login">
-        登录页
-        <div v-html="google_code"></div>
+    <div id="login" v-html="google_code">
     </div>
 </template>
 
@@ -20,7 +18,7 @@
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
                     console.log(response);
-                    this.google_code = response.data;
+                    this.google_code = response.body
                 }, (response) => {
                 });
             }
