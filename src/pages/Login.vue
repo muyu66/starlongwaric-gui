@@ -20,7 +20,7 @@
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
                     console.log(response);
-                    this.google_code = response.body;
+                    this.google_code = response.data;
                 }, (response) => {
                 });
             }
