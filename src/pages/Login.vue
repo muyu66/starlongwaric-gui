@@ -1,10 +1,6 @@
 <template>
     <div id="login">
-        <aaaa>
-            <div slot="header"></div>
-        </aaaa>
-        <bb>
-        </bb>
+        <aaaa></aaaa>
     </div>
 </template>
 
@@ -19,36 +15,27 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    let header = this.$slots.header
                     let aaaac = function () {
                         this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                            this.level = response.body
+                            return response.body
                         }, (response) => {
                         });
                     };
                     return createElement('div', aaaac)
                 },
             },
-            'bb': {
-                render: function (createElement) {
-                    return createElement('h' + this.level, 'ads')
-                },
-                props: {
-                    level: '2'
-                },
-            }
         },
-        created: function () {
-            this.getAuthCode();
-        },
-        methods: {
-            getAuthCode: function () {
-                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                    this.level = response.body
-                }, (response) => {
-                });
-            }
-        },
+//        created: function () {
+//            this.getAuthCode();
+//        },
+//        methods: {
+//            getAuthCode: function () {
+//                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+//                    this.level = response.body
+//                }, (response) => {
+//                });
+//            }
+//        },
     }
 </script>
 
