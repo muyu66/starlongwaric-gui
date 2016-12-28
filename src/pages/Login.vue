@@ -21,10 +21,13 @@
             },
             'bb': {
                 render: function (createElement) {
-                    return createElement('h1', this.level)
+                    return createElement('h' + this.level, 'asd')
                 },
                 props: {
-                    level: 'asddas'
+                    level: {
+                        type: Number,
+                        required: true
+                    }
                 },
             }
         },
