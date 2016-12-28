@@ -1,5 +1,6 @@
 <template>
     <div id="login">
+        <aaaa></aaaa>
         <bb></bb>
     </div>
 </template>
@@ -13,16 +14,16 @@
 //            }
 //        },
         components: {
-//            'aaaa': {
-//                render: function (createElement) {
-//                    return createElement('div',
-//                        this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-//                            this.google_code = response.body
-//                        }, (response) => {
-//                        })
-//                    )
-//                },
-//            },
+            'aaaa': {
+                render: function (createElement) {
+                    return createElement('div',
+                        this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                            this.google_code = response.body
+                        }, (response) => {
+                        })
+                    )
+                },
+            },
             'bb': {
                 render: function (createElement) {
                     return createElement('h1', 'hallo')
