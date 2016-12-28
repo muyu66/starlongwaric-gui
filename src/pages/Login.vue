@@ -32,7 +32,8 @@
                         'aaaa' // 子组件中的阵列
                     )
                 },
-            },
+            }
+        }
 //        created: function () {
 //            this.getAuthCode();
 //        },
@@ -45,7 +46,7 @@
 //                });
 //            }
 //        },
-        }
+    }
 </script>
 
 <style>
