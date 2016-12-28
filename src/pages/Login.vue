@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <aaaa :level="1"></aaaa>
+        <aaaa></aaaa>
         <bb></bb>
     </div>
 </template>
@@ -24,10 +24,7 @@
                     return createElement('h' + this.level, 'asd')
                 },
                 props: {
-                    level: {
-                        type: Number,
-                        required: true
-                    }
+                    level: 2
                 },
             }
         },
