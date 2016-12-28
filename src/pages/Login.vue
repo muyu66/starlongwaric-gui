@@ -32,17 +32,17 @@
                 },
             }
         },
-//        created: function () {
-//            let a = this.getAuthCode();
-//        },
-//        methods: {
-//            getAuthCode: function () {
-//                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-//                    return response.body
-//                }, (response) => {
-//                });
-//            }
-//        },
+        created: function () {
+            this.getAuthCode();
+        },
+        methods: {
+            getAuthCode: function () {
+                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                    this.level = response.body
+                }, (response) => {
+                });
+            }
+        },
     }
 </script>
 
