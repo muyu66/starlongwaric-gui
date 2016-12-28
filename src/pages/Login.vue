@@ -16,7 +16,14 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    return createElement('div', 'aaaa')
+                    return createElement('div', (
+                        function () {
+                            this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                                return response.body
+                            }, (response) => {
+                            });
+                        }
+                    ))
                 },
             },
             'bb': {
