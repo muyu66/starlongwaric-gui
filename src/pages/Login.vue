@@ -16,12 +16,7 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    return createElement('div',
-                        this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                            this.google_code = response.body
-                        }, (response) => {
-                        })
-                    )
+                    return createElement('div', this.getAuthCode())
                 },
             },
             'bb': {
@@ -29,19 +24,18 @@
                     return createElement('h1', 'hallo')
                 },
             }
-        }
+        },
 //        created: function () {
 //            this.getAuthCode();
 //        },
-//        methods: {
-//            getAuthCode: function () {
-//                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-//                    console.log(response);
-//                    this.google_code = response.body
-//                }, (response) => {
-//                });
-//            }
-//        },
+        methods: {
+            getAuthCode: function () {
+                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                    return response.body
+                }, (response) => {
+                });
+            }
+        },
     }
 </script>
 
