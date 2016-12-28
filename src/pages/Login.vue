@@ -8,11 +8,11 @@
 <script>
     export default {
         name: 'login',
-//        data () {
-//            return {
-//                level: '1',
-//            }
-//        },
+        data () {
+            return {
+                level: '1',
+            }
+        },
         components: {
             'aaaa': {
                 render: function (createElement) {
@@ -22,7 +22,7 @@
             'bb': {
                 functional: true,
                 render: function (createElement) {
-                    return createElement('h' + this.level.aaa, 'ads')
+                    return createElement('h' + this.level, 'ads')
                 },
                 props: {
                     level: {
