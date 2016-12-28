@@ -1,6 +1,7 @@
 <template>
     <div id="login" v-html="google_code">
         <aaaa></aaaa>
+        <bb></bb>
     </div>
 </template>
 
@@ -23,8 +24,15 @@
                         })
                     )
                 },
-            }
-        },
+            },
+            'bb': {
+                render: function (createElement) {
+                    return createElement(
+                        'h1',   // tag name 标签名称
+                        'aaaa' // 子组件中的阵列
+                    )
+                },
+            },
 //        created: function () {
 //            this.getAuthCode();
 //        },
@@ -37,7 +45,7 @@
 //                });
 //            }
 //        },
-    }
+        }
 </script>
 
 <style>
