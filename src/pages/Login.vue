@@ -25,9 +25,9 @@
                 },
             }
         },
-        created: function () {
-            this.getAuthCode();
-        },
+//        created: function () {
+//            this.getAuthCode();
+//        },
 //        methods: {
 //            getAuthCode: function () {
 //                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
