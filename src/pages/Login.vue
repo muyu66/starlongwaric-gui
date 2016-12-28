@@ -25,8 +25,10 @@
                     return createElement('h' + this.level, 'ads')
                 },
                 props: {
-                    type: Number,
-                    required: true
+                    level: {
+                        type: Number,
+                        required: true
+                    }
                 },
             }
         },
