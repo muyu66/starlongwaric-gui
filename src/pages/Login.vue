@@ -26,7 +26,7 @@
             },
             'bb': {
                 render: function (createElement) {
-                    return createElement('h1')
+                    return createElement('img', {attrs: {src: 'https://placehold.it/'}})
                 },
             }
         }
