@@ -1,6 +1,10 @@
 <template>
     <div id="login">
-        <aaaa></aaaa>
+        <aaaa>
+            <div slot="header" v-html="level"></div>
+        </aaaa>
+        <bb>
+        </bb>
     </div>
 </template>
 
@@ -15,27 +19,22 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    let aaaac = function () {
-                        this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                            return response.body
-                        }, (response) => {
-                        });
-                    };
-                    return createElement('div', aaaac)
+                    let header = this.$slots.header
+                    return createElement('div', header)
                 },
             },
         },
-//        created: function () {
-//            this.getAuthCode();
-//        },
-//        methods: {
-//            getAuthCode: function () {
-//                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-//                    this.level = response.body
-//                }, (response) => {
-//                });
-//            }
-//        },
+        created: function () {
+            this.getAuthCode();
+        },
+        methods: {
+            getAuthCode: function () {
+                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                    this.level = response.body
+                }, (response) => {
+                });
+            }
+        },
     }
 </script>
 
