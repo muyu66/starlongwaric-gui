@@ -1,7 +1,11 @@
 <template>
     <div id="login">
         <aaaa></aaaa>
-        <bb></bb>
+        <bb>
+            <h1 slot="header">
+                About Me
+            </h1>
+        </bb>
     </div>
 </template>
 
@@ -16,16 +20,8 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    return createElement('div', (
-                        function () {
-                            this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                                console.log(response.body);
-                                return response.body
-                            }, (response) => {
-                                console.log('aaa');
-                            });
-                        }
-                    ))
+                    let header = this.$slots.header
+                    return createElement('div', header)
                 },
             },
             'bb': {
