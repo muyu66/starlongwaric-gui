@@ -19,6 +19,7 @@
                     return createElement('div', (
                         function () {
                             this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                                console.log(response.body);
                                 return response.body
                             }, (response) => {
                             });
