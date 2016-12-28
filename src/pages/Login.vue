@@ -3,8 +3,6 @@
         <aaaa>
             <div slot="header" v-html="level"></div>
         </aaaa>
-        <bb>
-        </bb>
     </div>
 </template>
 
