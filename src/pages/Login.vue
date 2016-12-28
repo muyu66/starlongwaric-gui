@@ -24,14 +24,7 @@
                     return createElement('h1', this.level)
                 },
                 props: {
-                    level: {
-                        type: Number,
-                        required: true
-                    }
-                },
-                style: {
-                    color: 'red',
-                    fontSize: '14px'
+                    level: 'asddas'
                 },
             }
         },
