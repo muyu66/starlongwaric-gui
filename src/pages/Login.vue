@@ -22,10 +22,11 @@
             'bb': {
                 functional: true,
                 render: function (createElement) {
-                    return createElement('h' + this.level, 'ads')
+                    return createElement('h' + this.level.aaa, 'ads')
                 },
                 props: {
                     level: {
+                        aaa: 2,
                         type: Number,
                         required: true
                     }
