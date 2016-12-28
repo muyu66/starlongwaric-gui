@@ -1,5 +1,5 @@
 <template>
-    <div id="login" v-html="google_code">
+    <div id="login">
         <bb></bb>
     </div>
 </template>
@@ -7,11 +7,11 @@
 <script>
     export default {
         name: 'login',
-        data () {
-            return {
-                google_code: '',
-            }
-        },
+//        data () {
+//            return {
+//                google_code: '',
+//            }
+//        },
         components: {
 //            'aaaa': {
 //                render: function (createElement) {
