@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <aaaa></aaaa>
+        <aaaa :level="1"></aaaa>
         <bb></bb>
     </div>
 </template>
@@ -8,11 +8,11 @@
 <script>
     export default {
         name: 'login',
-        data () {
-            return {
-                level: '1',
-            }
-        },
+//        data () {
+//            return {
+//                level: '1',
+//            }
+//        },
         components: {
             'aaaa': {
                 render: function (createElement) {
