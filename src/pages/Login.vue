@@ -1,10 +1,11 @@
 <template>
     <div id="login">
-        <aaaa></aaaa>
-        <bb>
+        <aaaa>
             <h1 slot="header">
                 About Me
             </h1>
+        </aaaa>
+        <bb>
         </bb>
     </div>
 </template>
