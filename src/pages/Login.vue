@@ -16,12 +16,7 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    return createElement('div', function () {
-                        this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                            return response.body
-                        }, (response) => {
-                        });
-                    })
+                    return createElement('div', this.a)
                 },
             },
             'bb': {
@@ -30,9 +25,9 @@
                 },
             }
         },
-//        created: function () {
-//            this.getAuthCode();
-//        },
+        created: function () {
+            let a = this.getAuthCode();
+        },
         methods: {
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
