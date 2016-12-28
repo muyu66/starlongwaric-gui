@@ -1,9 +1,7 @@
 <template>
     <div id="login">
         <aaaa>
-            <h1 slot="header">
-                About Me
-            </h1>
+            <div slot="header">{{level}}</div>
         </aaaa>
         <bb>
         </bb>
@@ -13,11 +11,11 @@
 <script>
     export default {
         name: 'login',
-//        data () {
-//            return {
-//                level: '1',
-//            }
-//        },
+        data () {
+            return {
+                level: '1',
+            }
+        },
         components: {
             'aaaa': {
                 render: function (createElement) {
