@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         <aaaa></aaaa>
-        <bb></bb>
+        <bb :level="1">Hello world!</bb>
     </div>
 </template>
 
@@ -21,17 +21,12 @@
             },
             'bb': {
                 functional: true,
-                render: function (createElement, a) {
-                    function appropriateListComponent() {
-                        return a.props.level;
-                    }
-
-                    return createElement('h' +
-                        appropriateListComponent(), 'ads'
-                    )
+                render: function (createElement) {
+                    return createElement('h' + this.level, 'ads')
                 },
                 props: {
-                    level: 2
+                    type: Number,
+                    required: true
                 },
             }
         },
