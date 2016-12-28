@@ -24,10 +24,7 @@
                     return createElement('h' + this.level, 'asd')
                 },
                 props: {
-                    level: {
-                        type: Number,
-                        required: true
-                    }
+                    level: '1'
                 },
             }
         },
