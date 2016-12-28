@@ -20,9 +20,17 @@
                 },
             },
             'bb': {
-                render: function (createElement,a) {
-                    return createElement('h' + a.props.level, 'asd')
+                functional: true,
+                render: function (createElement, a) {
+                    function appropriateListComponent() {
+                        return a.props.level;
+                    }
+
+                    return createElement(
+                        appropriateListComponent(),
+                    )
                 },
+
                 props: {
                     level: 2
                 },
