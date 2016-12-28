@@ -8,11 +8,11 @@
 <script>
     export default {
         name: 'login',
-//        data () {
-//            return {
-//                google_code: '',
-//            }
-//        },
+        data () {
+            return {
+                level: '1',
+            }
+        },
         components: {
             'aaaa': {
                 render: function (createElement) {
@@ -24,7 +24,10 @@
                     return createElement('h' + this.level, 'asd')
                 },
                 props: {
-                    level: '1'
+                    level: {
+                        type: Number,
+                        required: true
+                    }
                 },
             }
         },
