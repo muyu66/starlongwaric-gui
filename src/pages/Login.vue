@@ -20,7 +20,6 @@
                 },
             },
             'bb': {
-                functional: true,
                 render: function (createElement) {
                     return createElement('h' + this.level, 'ads')
                 },
