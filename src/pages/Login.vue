@@ -26,11 +26,10 @@
                         return a.props.level;
                     }
 
-                    return createElement(
-                        appropriateListComponent(),
+                    return createElement('h' +
+                        appropriateListComponent(), 'ads'
                     )
                 },
-
                 props: {
                     level: 2
                 },
