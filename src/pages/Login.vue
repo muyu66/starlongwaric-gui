@@ -1,7 +1,7 @@
 <template>
     <div id="login">
         <aaaa>
-            <div slot="header">{{level}}</div>
+            <div slot="header" v-html="level"></div>
         </aaaa>
         <bb>
         </bb>
