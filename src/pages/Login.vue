@@ -6,12 +6,14 @@
 
 <script>
     Vue.component('aaaa', {
-        render: function () {
-            this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
-                console.log(response);
-                this.google_code = response.body
-            }, (response) => {
-            });
+        render: function (createElement) {
+            return createElement('div',
+                this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
+                    console.log(response);
+                    this.google_code = response.body
+                }, (response) => {
+                })
+            )
         },
     });
     export default {
