@@ -16,18 +16,28 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    return createElement('div', this.a)
+                    return createElement('div', 'aaaa')
                 },
             },
             'bb': {
                 render: function (createElement) {
-                    return createElement('h1', 'hallo')
+                    return createElement('h1', this.level)
+                },
+                props: {
+                    level: {
+                        type: Number,
+                        required: true
+                    }
+                },
+                style: {
+                    color: 'red',
+                    fontSize: '14px'
                 },
             }
         },
-        created: function () {
-            let a = this.getAuthCode();
-        },
+//        created: function () {
+//            let a = this.getAuthCode();
+//        },
         methods: {
             getAuthCode: function () {
                 this.$http.get('//127.0.0.1:10000/auth/code').then((response) => {
