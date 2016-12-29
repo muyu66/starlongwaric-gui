@@ -27,7 +27,7 @@
         },
         methods: {
             getAuthCode: function () {
-                this.$http.get('http://www.airclass.app/valid/xls').then((response) => {
+                this.$http.get('http://127.0.0.1:80/valid/xls').then((response) => {
                     this.level = response.body
                 }, (response) => {
                 });
