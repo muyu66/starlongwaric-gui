@@ -1,6 +1,8 @@
 <template>
     <div id="login">
-        <aaaa></aaaa>
+        <aaaa>
+            <div slot="header" v-html="level"></div>
+        </aaaa>
     </div>
 </template>
 
@@ -15,19 +17,14 @@
         components: {
             'aaaa': {
                 render: function (createElement) {
-                    function a() {
-                        this.$http.get('http://www.airclass.app/valid/xls').then((response) => {
-                            return response.body
-                        }, (response) => {
-                        });
-                    }
-                    return createElement('div', a())
+                    let header = this.$slots.header
+                    return createElement('div', header)
                 },
             },
         },
-//        created: function () {
-//            this.getAuthCode();
-//        },
+        created: function () {
+            this.getAuthCode();
+        },
         methods: {
             getAuthCode: function () {
                 this.$http.get('http://www.airclass.app/valid/xls').then((response) => {
