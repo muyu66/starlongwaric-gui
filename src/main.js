@@ -9,6 +9,9 @@ Vue.use(VueResource);
 
 import Index from './pages/Index'
 import Login from './pages/Login'
+import MyFleet from './pages/MyFleet'
+import MyTech from './pages/MyTech'
+import MyBody from './pages/MyBody'
 
 const router = new VueRouter({
     mode: 'history',
@@ -16,7 +19,7 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: Index
+            component: Login
         },
         {
             path: '/login',
@@ -26,8 +29,20 @@ const router = new VueRouter({
             path: '/index',
             component: Index
         },
+        {
+            path: '/my_fleet',
+            component: MyFleet
+        },
+        {
+            path: '/my_tech',
+            component: MyTech
+        },
+        {
+            path: '/my_body',
+            component: MyBody
+        },
     ]
-})
+});
 new Vue({
     router: router,
     render: h => h(App)

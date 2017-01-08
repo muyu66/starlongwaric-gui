@@ -9,8 +9,12 @@
         name: 'topbar',
         methods: {
             getAuthUser: function () {
-                this.$http.get('//127.0.0.1:10000/auth/user').then((response) => {
+                this.$http.get(
+                    'http://www.slw.app/fleets/1', window.auth_header
+                ).then((response) => {
+                    alert(response.body.name);
                 }, (response) => {
+                    console.log(response);
                 });
             }
         },

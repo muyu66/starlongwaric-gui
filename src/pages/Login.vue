@@ -1,35 +1,60 @@
 <template>
     <div id="login">
-        <aaaa>
-            <div slot="header" v-html="level"></div>
-        </aaaa>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-8">
+                    <input v-model="email" type="email" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-8">
+                    <input v-model="password" type="password" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" v-on:click="getAuthLogin" class="btn btn-default">登录</button>
+                    <button type="submit" class="btn btn-default">注册</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'login',
         data () {
             return {
-                level: '1',
+                email: '',
+                password: '',
             }
         },
-        components: {
-            'aaaa': {
-                render: function (createElement) {
-                    let header = this.$slots.header
-                    return createElement('div', header)
-                },
-            },
-        },
-        created: function () {
-            this.getAuthCode();
-        },
+        name: 'login',
         methods: {
-            getAuthCode: function () {
-                this.$http.get('http://127.0.0.1:80/valid/xls').then((response) => {
-                    this.level = response.body
+            getAuthLogin: function () {
+                window.auth_email = this.email;
+                window.auth_password = this.password;
+                window.auth_header = {
+                    headers: {
+                        Authorization: 'Basic ' +
+                        btoa(window.auth_email + ':' + window.auth_password)
+                    }
+                }
+                this.$http.get(
+                    'http://www.slw.app/auth/login', window.auth_header
+                ).then((response) => {
+                    if (response.body.status) {
+                        /**
+                         * 检测登录返回状态，成功则跳转
+                         */
+                        this.$router.push('index');
+                    } else {
+                        alert('error');
+                    }
                 }, (response) => {
+                    console.log(response);
                 });
             }
         },
