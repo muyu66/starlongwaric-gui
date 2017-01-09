@@ -1,18 +1,31 @@
 <template>
     <div id="topbar" class="full">
-        <a v-on:click="getAuthUser">玩家状态</a>
+        <button class="btn btn-default" type="button">
+            金币 <span class="badge">{{ my_fleet.gold }}</span>
+        </button>
+        <button class="btn btn-default" type="button">
+            能源 <span class="badge">{{ my_fleet.fuel }}</span>
+        </button>
     </div>
 </template>
 
 <script>
     export default {
         name: 'topbar',
+        data () {
+            return {
+                my_fleet: ''
+            }
+        },
+        created: function () {
+            this.getFleetsMy();
+        },
         methods: {
-            getAuthUser: function () {
+            getFleetsMy: function () {
                 this.$http.get(
                     'http://www.slw.app/fleets/1', window.auth_header
                 ).then((response) => {
-                    alert(response.body.name);
+                    this.my_fleet = response.body;
                 }, (response) => {
                     console.log(response);
                 });
