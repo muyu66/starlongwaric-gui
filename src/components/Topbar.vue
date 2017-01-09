@@ -14,7 +14,7 @@
         name: 'topbar',
         data () {
             return {
-                my_fleet: ''
+                my_fleet: '',
             }
         },
         created: function () {

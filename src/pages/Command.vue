@@ -3,13 +3,42 @@
         <div class="panel panel-default">
             <div class="panel-heading">指定作战计划</div>
             <div class="panel-body">
-                指定作战计划
+                <div class="list-group">
+                    <a class="list-group-item" v-for="item in fight_plan">
+                        <h4 class="list-group-item-heading">{{ item.text }}</h4>
+                        <p class="list-group-item-text">{{ item.desc }}</p>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">任命指挥官</div>
             <div class="panel-body">
-                任命指挥官
+                <div class="list-group">
+                    <a class="list-group-item" v-for="item in my_fleet_staff">
+                        <h4 class="list-group-item-heading">
+                            {{ item.name }}
+                            <span class="label label-primary" v-if="item.is_commander">
+                                指挥官
+                            </span>
+                        </h4>
+                        <p class="list-group-item-text">
+                            智力：{{ item.intelligence }}
+                            忠诚：{{ item.loyalty }}
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">指定行动计划</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a class="list-group-item" v-for="action_plan in action_plans">
+                        <h4 class="list-group-item-heading">{{ action_plan.text }}</h4>
+                        <p class="list-group-item-text">{{ action_plan.desc }}</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -20,14 +49,45 @@
         name: 'command',
         data () {
             return {
-                my_body: ''
+                my_body: '',
+                my_fleet_staff: '',
+                action_plans: [
+                    {
+                        text: '优先 战斗',
+                        desc: '主动寻求战机',
+                    },
+                    {
+                        text: '优先 躲避',
+                        desc: '尽量避免冲突',
+                    },
+                    {
+                        text: '疯狂屠戮',
+                        desc: '无视敌友，无差别的疯狂攻击',
+                    }
+                ],
+                fight_plan: [
+                    {
+                        text: '注重 防御',
+                        desc: '使用能量盾构建防御墙',
+                    },
+                    {
+                        text: '注重 破盾',
+                        desc: '注重 破盾',
+                    },
+                    {
+                        text: '注重 攻击',
+                        desc: '注重 攻击',
+                    },
+                ],
             }
         },
         created: function () {
-            this.getBodies();
+            this.getBody();
+            this.getFleetStaff();
+            ;
         },
         methods: {
-            getBodies: function () {
+            getBody: function () {
                 this.$http.get(
                     'http://www.slw.app/fleet_bodies', window.auth_header
                 ).then((response) => {
@@ -35,7 +95,16 @@
                 }, (response) => {
                     console.log(response);
                 });
-            }
+            },
+            getFleetStaff: function () {
+                this.$http.get(
+                    'http://www.slw.app/staff/my', window.auth_header
+                ).then((response) => {
+                    this.my_fleet_staff = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
         },
     }
 </script>

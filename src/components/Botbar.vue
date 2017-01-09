@@ -31,7 +31,7 @@
                         method: 'command',
                     },
                     {
-                        text: '报告',
+                        text: '汇报',
                         method: 'report',
                     },
                 ]

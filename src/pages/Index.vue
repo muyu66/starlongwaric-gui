@@ -1,21 +1,15 @@
 <template>
-    <div id="index">
+    <div id="index" v-on:mousedown="down" v-on:mouseup="up">
         <transition name="slide-fade">
-            <div id='dash_top' v-if="show1">
+            <div id='dash_top' v-if="display_top">
                 <topbar></topbar>
             </div>
         </transition>
         <transition name="slide-fade">
-            <div id='dash_bot' v-if="show2">
+            <div id='dash_bot' v-if="display_bot">
                 <botbar></botbar>
             </div>
         </transition>
-        <button @click="show1 = !show1" style="position: absolute; top: 40%">
-            Toggle render
-        </button>
-        <button @click="show2 = !show2" style="position: absolute; top: 50%">
-            Toggle render
-        </button>
     </div>
 </template>
 
@@ -29,13 +23,31 @@
         name: 'index',
         data () {
             return {
-                show1: false,
-                show2: false,
+                display_top: false,
+                display_bot: false,
+                mouse_pos_down: 0,
+                mouse_pos_up: 0,
             }
         },
         beforeMount: function () {
             // 检查登录状态，无则回跳登录页面
             CheckAuth();
+        },
+        methods: {
+            down: function () {
+                this.mouse_pos_down = window.event.clientY;
+            },
+            up: function () {
+                this.mouse_pos_up = window.event.clientY;
+                this.check();
+            },
+            check: function () {
+                if (this.mouse_pos_up < window.innerHeight / 2) {
+                    this.display_top = this.mouse_pos_down < this.mouse_pos_up;
+                } else {
+                    this.display_bot = this.mouse_pos_down > this.mouse_pos_up;
+                }
+            },
         },
         components: {
             Topbar, Botbar,
