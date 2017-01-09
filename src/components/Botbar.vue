@@ -27,8 +27,12 @@
                         method: 'my_tech',
                     },
                     {
-                        text: '战斗',
-                        method: 'fight',
+                        text: '指令',
+                        method: 'command',
+                    },
+                    {
+                        text: '报告',
+                        method: 'report',
                     },
                 ]
             }

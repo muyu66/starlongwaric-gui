@@ -1,6 +1,9 @@
 <template>
     <div id="my_fleet">
         {{ my_fleet.name }}
+        {{ my_fleet.gold }}
+        {{ my_fleet.fuel }}
+        {{ my_fleet.power }}
         <br/>
     </div>
 </template>

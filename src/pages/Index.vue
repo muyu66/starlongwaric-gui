@@ -23,6 +23,8 @@
     import Topbar from '../components/Topbar'
     import Botbar from '../components/Botbar'
 
+    import CheckAuth from '../middlewares/CheckAuth'
+
     export default {
         name: 'index',
         data () {
@@ -30,6 +32,10 @@
                 show1: false,
                 show2: false,
             }
+        },
+        beforeMount: function () {
+            // 检查登录状态，无则回跳登录页面
+            CheckAuth();
         },
         components: {
             Topbar, Botbar,

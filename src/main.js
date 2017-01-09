@@ -12,6 +12,8 @@ import Login from './pages/Login'
 import MyFleet from './pages/MyFleet'
 import MyTech from './pages/MyTech'
 import MyBody from './pages/MyBody'
+import Command from './pages/Command'
+import Report from './pages/Report'
 
 const router = new VueRouter({
     mode: 'history',
@@ -40,6 +42,14 @@ const router = new VueRouter({
         {
             path: '/my_body',
             component: MyBody
+        },
+        {
+            path: '/command',
+            component: Command
+        },
+        {
+            path: '/report',
+            component: Report
         },
     ]
 });
