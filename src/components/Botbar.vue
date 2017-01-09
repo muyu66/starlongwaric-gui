@@ -1,13 +1,9 @@
 <template>
     <ul class="list-inline full" id="botbar">
-        <li>
-            <button v-on:click="goMyFleet" type="button" class="button">舰队</button>
-        </li>
-        <li>
-            <button v-on:click="goMyTech" type="button" class="button">科技</button>
-        </li>
-        <li>
-            <button v-on:click="goMyBody" type="button" class="button">维修</button>
+        <li v-for="button in buttons">
+            <button v-on:click="go(button.method)" type="button" class="button">
+                {{ button.text }}
+            </button>
         </li>
     </ul>
 </template>
@@ -15,16 +11,32 @@
 <script>
     export default {
         name: 'botbar',
-        methods: {
-            goMyFleet: function () {
-                this.$router.push('my_fleet');
-            },
-            goMyTech: function () {
-                this.$router.push('my_tech');
-            },
-            goMyBody: function () {
-                this.$router.push('my_body');
+        data () {
+            return {
+                buttons: [
+                    {
+                        text: '舰队',
+                        method: 'my_fleet'
+                    },
+                    {
+                        text: '维修',
+                        method: 'my_body',
+                    },
+                    {
+                        text: '科技',
+                        method: 'my_tech',
+                    },
+                    {
+                        text: '战斗',
+                        method: 'fight',
+                    },
+                ]
             }
+        },
+        methods: {
+            go: function (path) {
+                this.$router.push(path);
+            },
         }
     }
 </script>
