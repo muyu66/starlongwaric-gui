@@ -8,11 +8,18 @@
             </div>
         </div>
         <div class="panel panel-default" v-for="event in events">
-            <div class="panel-heading">事件 {{ displayTitle(event.status) }}</div>
+            <div class="panel-heading">
+                事件 {{ event.standard.name }} {{ displayTitle(event.status) }}
+            </div>
             <div class="panel-body">
-                姓名: {{ event.standard.name }}<br/>
                 描述: {{ event.standard.desc }}<br/>
                 指挥官: {{ event.commander }}<br/>
+                <button class="btn" v-on:click="postEventResolve(event.id, 1)">
+                    {{ displayButton(event.standard.event, 'yes') }}
+                </button>
+                <button class="btn" v-on:click="postEventResolve(event.id, 0)">
+                    {{ displayButton(event.standard.event, 'no') }}
+                </button>
                 <button class="btn">委托给指挥官</button>
             </div>
         </div>
@@ -44,7 +51,7 @@
             },
             getEvents: function () {
                 this.$http.get(
-                    'http://www.slw.app/events', window.auth_header
+                    'http://www.slw.app/event', window.auth_header
                 ).then((response) => {
                     this.events = response.body;
                 }, (response) => {
@@ -58,6 +65,23 @@
                 else {
                     return '(待处理)'
                 }
+            },
+            displayButton: function (event, button) {
+                switch (event) {
+                    case 1:
+                        return button == 'yes' ? '作战' : '躲避';
+                    case 2:
+                        return button == 'yes' ? '招募' : '离开';
+                }
+            },
+            postEventResolve: function (id, choose) {
+                this.$http.post(
+                    'http://www.slw.app/event/resolve', {id: id, choose: choose}, window.auth_header
+                ).then((response) => {
+                    this.getEvents();
+                }, (response) => {
+                    console.log(response);
+                });
             },
         }
     }

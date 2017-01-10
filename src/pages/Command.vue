@@ -24,6 +24,8 @@
                             </span>
                         </h4>
                         <p class="list-group-item-text">
+                            职业：{{ jobs[item.job] }}
+                            职业能力：{{ item.job_ability }}
                             智力：{{ item.intelligence }}
                             忠诚：{{ item.loyalty }}
                         </p>
@@ -79,6 +81,9 @@
                         text: '注重 攻击',
                         desc: '注重 攻击',
                     },
+                ],
+                jobs: [
+                    '警卫', '工程师', '指挥家', '绝地武士'
                 ],
             }
         },
