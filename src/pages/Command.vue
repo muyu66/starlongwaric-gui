@@ -15,7 +15,8 @@
             <div class="panel-heading">任命指挥官</div>
             <div class="panel-body">
                 <div class="list-group">
-                    <a class="list-group-item" v-for="item in my_fleet_staff">
+                    <a class="list-group-item" v-for="item in my_fleet_staff"
+                       v-on:click="postStaffAppointCommander(item.id,item.is_commander)">
                         <h4 class="list-group-item-heading">
                             {{ item.name }}
                             <span class="label label-primary" v-if="item.is_commander">
@@ -101,6 +102,20 @@
                     'http://www.slw.app/staff/my', window.auth_header
                 ).then((response) => {
                     this.my_fleet_staff = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            postStaffAppointCommander: function (id, is_commander) {
+                if (is_commander) {
+                    alert('请不要重复任命');
+                    return '';
+                }
+
+                this.$http.post(
+                    'http://www.slw.app/staff/appoint-commander', {commander_id: id}, window.auth_header
+                ).then((response) => {
+                    this.getFleetStaff();
                 }, (response) => {
                     console.log(response);
                 });
