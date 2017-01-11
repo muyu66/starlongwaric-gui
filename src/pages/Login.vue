@@ -10,12 +10,17 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-8">
-                    <input v-on:keyup.enter="getAuthLogin" v-model="password" type="password" class="form-control">
+                    <input v-on:keyup.enter="postAuthLogin" v-model="password" type="password" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <button type="submit" v-on:click="getAuthLogin" class="btn btn-default">登录</button>
+                    <div v-html="code_html"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" v-on:click="postAuthLogin" class="btn btn-default">登录</button>
                     <button type="submit" class="btn btn-default">注册</button>
                 </div>
             </div>
@@ -29,21 +34,35 @@
             return {
                 email: '',
                 password: '',
+                code_html: '',
             }
         },
         name: 'login',
+        created: function () {
+            this.getAuthCode();
+        },
         methods: {
-            getAuthLogin: function () {
+            getAuthCode: function () {
+                this.$http.get(
+                    'http://www.slw.app/auth/code'
+                ).then((response) => {
+                    this.code_html = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            postAuthLogin: function () {
                 window.auth_email = this.email;
                 window.auth_password = this.password;
                 window.auth_header = {
                     headers: {
                         Authorization: 'Basic ' +
-                        btoa(window.auth_email + ':' + window.auth_password)
+                        btoa(window.auth_email + ':' + window.auth_password),
+                        Accept: 'application/json',
                     }
-                }
-                this.$http.get(
-                    'http://www.slw.app/auth/login', window.auth_header
+                };
+                this.$http.post(
+                    'http://www.slw.app/auth/login', {}, window.auth_header
                 ).then((response) => {
                     if (response.body.status) {
                         /**
@@ -57,7 +76,8 @@
                     console.log(response);
                 });
             }
-        },
+        }
+        ,
     }
 </script>
 

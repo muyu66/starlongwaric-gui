@@ -1,7 +1,8 @@
 <template>
     <div id="report">
         <ul class="nav nav-pills" role="tablist">
-            <li v-bind:class="{ active:seen_events }"><a v-on:click="showEvents">事件</a></li>
+            <li v-bind:class="{ active:seen_event_un_finish }"><a v-on:click="showEventsUnFinish">事件</a></li>
+            <li v-bind:class="{ active:seen_event_finish }"><a v-on:click="showEventsFinish">事件(已完成)</a></li>
             <li v-bind:class="{ active:seen_fights }"><a v-on:click="showFights">战报</a></li>
         </ul>
 
@@ -13,9 +14,31 @@
                 {{ displayGet(item.result) }} 金币 {{ item.booty.gold }} 能源 {{ item.booty.fuel }}<br/>
             </div>
         </div>
-        <div class="panel panel-default" v-for="event in events" v-if="seen_events">
+        <div class="panel panel-default" v-for="event in event_un_finish" v-if="seen_event_un_finish">
             <div class="panel-heading">
                 事件 {{ event.standard.name }} {{ displayTitle(event.status) }}
+                <span style="float:right; position:relative;">{{ event.updated_at }}</span>
+            </div>
+            <div class="panel-body">
+                描述: {{ event.standard.desc }}<br/>
+                指挥官: {{ event.commander }}<br/>
+                <div v-if="!event.status">
+                    <button class="btn" v-on:click="postEventResolve(event.id, 1)">
+                        {{ displayButton(event.standard.event, 'yes') }}
+                    </button>
+                    <button class="btn" v-on:click="postEventResolve(event.id, 0)">
+                        {{ displayButton(event.standard.event, 'no') }}
+                    </button>
+                    <button class="btn" v-on:click="postEventResolve(event.id, 2)">
+                        委托给指挥官
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" v-for="event in event_finish" v-if="seen_event_finish">
+            <div class="panel-heading">
+                事件 {{ event.standard.name }} {{ displayTitle(event.status) }}
+                <span style="float:right; position:relative;">{{ event.updated_at }}</span>
             </div>
             <div class="panel-body">
                 描述: {{ event.standard.desc }}<br/>
@@ -42,17 +65,20 @@
         data () {
             return {
                 report: '',
-                events: '',
+                event_un_finish: '',
+                event_finish: '',
                 results: [
                     '失败', '平局', '胜利'
                 ],
-                seen_events: true,
+                seen_event_un_finish: true,
+                seen_event_finish: false,
                 seen_fights: false,
             }
         },
         created: function () {
             this.getFights();
-            this.getEvents();
+            this.getEventUnFinish();
+            this.getEventFinish();
         },
         methods: {
             getFights: function () {
@@ -64,11 +90,20 @@
                     console.log(response);
                 });
             },
-            getEvents: function () {
+            getEventFinish: function () {
                 this.$http.get(
-                    'http://www.slw.app/event', window.auth_header
+                    'http://www.slw.app/event/finish', window.auth_header
                 ).then((response) => {
-                    this.events = response.body;
+                    this.event_finish = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            getEventUnFinish: function () {
+                this.$http.get(
+                    'http://www.slw.app/event/un-finish', window.auth_header
+                ).then((response) => {
+                    this.event_un_finish = response.body;
                 }, (response) => {
                     console.log(response);
                 });
@@ -104,17 +139,25 @@
                     'http://www.slw.app/event/resolve', {id: id, choose: choose}, window.auth_header
                 ).then((response) => {
                     this.getFights();
-                    this.getEvents();
+                    this.getEventUnFinish();
+                    this.getEventFinish();
                 }, (response) => {
                     console.log(response);
                 });
             },
-            showEvents: function () {
-                this.seen_events = true;
+            showEventsUnFinish: function () {
+                this.seen_event_un_finish = true;
+                this.seen_event_finish = false;
+                this.seen_fights = false;
+            },
+            showEventsFinish: function () {
+                this.seen_event_un_finish = false;
+                this.seen_event_finish = true;
                 this.seen_fights = false;
             },
             showFights: function () {
-                this.seen_events = false;
+                this.seen_event_un_finish = false;
+                this.seen_event_finish = false;
                 this.seen_fights = true;
             },
         }
