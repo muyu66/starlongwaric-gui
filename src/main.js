@@ -14,6 +14,7 @@ import MyTech from './pages/MyTech'
 import MyBody from './pages/MyBody'
 import Command from './pages/Command'
 import Report from './pages/Report'
+import Message from './pages/Message'
 
 import CheckAuth from './middlewares/CheckAuth'
 
@@ -60,6 +61,11 @@ const router = new VueRouter({
             path: '/report',
             component: Report,
             meta: {title: '汇报 - 星际的远征'},
+        },
+        {
+            path: '/message',
+            component: Message,
+            meta: {title: '消息 - 星际的远征'},
         },
     ]
 });
