@@ -1,5 +1,6 @@
 <template>
     <div id="topbar" class="full">
+        <button class="btn btn-default" type="button">好友</button>
         <button class="btn btn-default" type="button">
             金币 <span class="badge">{{ my_fleet.gold }}</span>
         </button>

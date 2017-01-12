@@ -17,8 +17,6 @@
     import Topbar from '../components/Topbar'
     import Botbar from '../components/Botbar'
 
-    import CheckAuth from '../middlewares/CheckAuth'
-
     export default {
         name: 'index',
         data () {
@@ -28,10 +26,6 @@
                 mouse_pos_down: 0,
                 mouse_pos_up: 0,
             }
-        },
-        beforeMount: function () {
-            // 检查登录状态，无则回跳登录页面
-            CheckAuth();
         },
         methods: {
             down: function () {

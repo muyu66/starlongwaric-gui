@@ -15,44 +15,71 @@ import MyBody from './pages/MyBody'
 import Command from './pages/Command'
 import Report from './pages/Report'
 
+import CheckAuth from './middlewares/CheckAuth'
+
 const router = new VueRouter({
     mode: 'history',
     base: __dirname,
     routes: [
         {
             path: '/',
-            component: Login
+            component: Login,
+            meta: {title: '星际的远征'},
         },
         {
             path: '/login',
-            component: Login
+            component: Login,
+            meta: {title: '登录 - 星际的远征'},
         },
         {
             path: '/index',
-            component: Index
+            component: Index,
+            meta: {title: '星际的远征'},
         },
         {
             path: '/my_fleet',
-            component: MyFleet
+            component: MyFleet,
+            meta: {title: '舰队 - 星际的远征'},
         },
         {
             path: '/my_tech',
-            component: MyTech
+            component: MyTech,
+            meta: {title: '科技 - 星际的远征'},
         },
         {
             path: '/my_body',
-            component: MyBody
+            component: MyBody,
+            meta: {title: '维修 - 星际的远征'},
         },
         {
             path: '/command',
-            component: Command
+            component: Command,
+            meta: {title: '指令 - 星际的远征'},
         },
         {
             path: '/report',
-            component: Report
+            component: Report,
+            meta: {title: '汇报 - 星际的远征'},
         },
     ]
 });
+
+router.afterEach((to, from) => {
+    /**
+     * 动态页面标题
+     */
+    document.title = to.meta.title;
+
+    /**
+     * Auth 中间件
+     * @type {[*]}
+     */
+    let excepts = ['/', '/login']; // 这些路由不需要授权
+    if (excepts.indexOf(to.path) === - 1) {
+        CheckAuth();
+    }
+});
+
 new Vue({
     router: router,
     render: h => h(App)

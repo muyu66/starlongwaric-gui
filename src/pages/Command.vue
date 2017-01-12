@@ -90,7 +90,6 @@
         created: function () {
             this.getBody();
             this.getFleetStaff();
-            ;
         },
         methods: {
             getBody: function () {
