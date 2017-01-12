@@ -64,12 +64,7 @@ const router = new VueRouter({
     ]
 });
 
-router.afterEach((to, from) => {
-    /**
-     * 动态页面标题
-     */
-    document.title = to.meta.title;
-
+router.beforeEach((to, from, next) => {
     /**
      * Auth 中间件
      * @type {[*]}
@@ -78,6 +73,14 @@ router.afterEach((to, from) => {
     if (excepts.indexOf(to.path) === - 1) {
         CheckAuth();
     }
+    next();
+});
+
+router.afterEach((to, from) => {
+    /**
+     * 动态页面标题
+     */
+    document.title = to.meta.title;
 });
 
 new Vue({
