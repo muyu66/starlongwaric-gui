@@ -15,6 +15,7 @@ import MyBody from './pages/MyBody'
 import Command from './pages/Command'
 import Report from './pages/Report'
 import Message from './pages/Message'
+import Friend from './pages/Friend'
 
 import CheckAuth from './middlewares/CheckAuth'
 
@@ -66,6 +67,11 @@ const router = new VueRouter({
             path: '/message',
             component: Message,
             meta: {title: '消息 - 星际的远征'},
+        },
+        {
+            path: '/friend',
+            component: Friend,
+            meta: {title: 'Friend - 星际的远征'},
         },
     ]
 });

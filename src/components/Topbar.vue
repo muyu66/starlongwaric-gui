@@ -1,6 +1,6 @@
 <template>
     <div id="topbar" class="full">
-        <button class="btn btn-default" type="button">好友</button>
+        <button class="btn btn-default" type="button" v-on:click="goFriend()">好友</button>
         <button class="btn btn-default" type="button" v-on:click="goMessage()">
             消息 <span class="badge">{{ un_read_count.count }}</span>
         </button>
@@ -47,6 +47,9 @@
             },
             goMessage: function () {
                 this.$router.push('/message');
+            },
+            goFriend: function () {
+                this.$router.push('/friend');
             },
         },
     }
