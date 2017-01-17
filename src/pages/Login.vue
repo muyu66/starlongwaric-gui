@@ -70,14 +70,13 @@
                          */
                         this.$router.push('index');
                     } else {
-                        alert('error');
+                        this.$exception.render(response.body.code, response.body.msg);
                     }
                 }, (response) => {
-                    console.log(response);
+                    alert('连接服务器失败');
                 });
             }
-        }
-        ,
+        },
     }
 </script>
 

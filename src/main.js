@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App'
-// import Test from './commons/Test'
+import Exception from './commons/Exception'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
-// Vue.use(Test);
+Vue.use(Exception);
 
 import Index from './pages/Index'
 import Login from './pages/Login'
