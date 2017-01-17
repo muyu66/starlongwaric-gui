@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+// import Test from './commons/Test'
 import App from './App'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+// Vue.use(Test);
 
 import Index from './pages/Index'
 import Login from './pages/Login'
@@ -71,7 +73,7 @@ const router = new VueRouter({
         {
             path: '/friend',
             component: Friend,
-            meta: {title: 'Friend - 星际的远征'},
+            meta: {title: '盟友 - 星际的远征'},
         },
     ]
 });
@@ -82,7 +84,7 @@ router.beforeEach((to, from, next) => {
      * @type {[*]}
      */
     let excepts = ['/', '/login']; // 这些路由不需要授权
-    if (excepts.indexOf(to.path) === - 1) {
+    if (excepts.indexOf(to.path) === -1) {
         CheckAuth();
     }
     next();

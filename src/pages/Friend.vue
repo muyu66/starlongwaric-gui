@@ -1,6 +1,12 @@
 <template>
     <div id="friend">
-
+        <div class="panel panel-default" v-for="item in friend.friends">
+            <div class="panel-heading">{{ item }}</div>
+            <div class="panel-body">
+                {{ item }}
+                <button class="btn btn-default" type="button" v-on:click="postFriendDelete(item)">删除好友</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -8,10 +14,32 @@
     export default {
         name: 'friend',
         data () {
-            return {}
+            return {
+                friend: '',
+            }
         },
         created: function () {
+            this.getFriend();
         },
-        methods: {},
+        methods: {
+            getFriend: function () {
+                this.$http.get(
+                    'http://www.slw.app/friend', window.auth_header
+                ).then((response) => {
+                    this.friend = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            postFriendDelete: function (id) {
+                this.$http.post(
+                    'http://www.slw.app/friend/delete', {id: id}, window.auth_header
+                ).then((response) => {
+                    this.getFriend();
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+        },
     }
 </script>
