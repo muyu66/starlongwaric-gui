@@ -1,16 +1,16 @@
 <template>
     <div id="my_fleet">
-        {{ my_fleet.name }}
-        {{ my_fleet.gold }}
-        {{ my_fleet.fuel }}
-        {{ my_fleet.power }}
-        <br/>
-        <table class="table">
-            <tr v-for="item in my_fleet_staff">
-                <td>{{ item.name }}</td>
-                <td>{{ item.desc }}</td>
-            </tr>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item">舰长：{{ my_fleet.name }}</li>
+            <li class="list-group-item">金币：{{ my_fleet.gold }}</li>
+            <li class="list-group-item">能源：{{ my_fleet.fuel }}</li>
+            <li class="list-group-item">战力：{{ my_fleet.power }}</li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in my_fleet_staff">
+                {{ item.name }} {{ item.desc }}
+            </li>
+        </ul>
     </div>
 </template>
 

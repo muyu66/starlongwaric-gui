@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-// import Test from './commons/Test'
 import App from './App'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import Test from './commons/Test'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);

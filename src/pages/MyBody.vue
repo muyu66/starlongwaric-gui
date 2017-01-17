@@ -1,12 +1,19 @@
 <template>
     <div id="my_body">
-        <table class="table">
-            <tr v-for="item in my_body">
-                <td>{{ item.health }}</td>
-                <td>{{ item.widget.name }}</td>
-                <td>{{ item.widget.desc }}</td>
-            </tr>
-        </table>
+        <div class="list-group">
+            <a class="list-group-item" v-for="item in my_body">
+                <h4>{{ item.widget.name }}
+                    <small>{{ item.widget.desc }}</small>
+                </h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" v-bind:style="{ width: item.health + '%' }">
+                        {{ item.health }}%
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default" @click="postBodies(item.id)">修复</button>
+                <button type="button" class="btn btn-default" @click="postBodiesAll">全部修复</button>
+            </a>
+        </div>
     </div>
 </template>
 
@@ -30,7 +37,25 @@
                 }, (response) => {
                     console.log(response);
                 });
-            }
+            },
+            postBodies: function (id) {
+                this.$http.post(
+                    'http://www.slw.app/fleet_bodies', { id: id }, window.auth_header
+                ).then((response) => {
+                    this.getBodies();
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            postBodiesAll: function () {
+                this.$http.post(
+                    'http://www.slw.app/fleet_bodies/all', {}, window.auth_header
+                ).then((response) => {
+                    this.getBodies();
+                }, (response) => {
+                    console.log(response);
+                });
+            },
         },
     }
 </script>
