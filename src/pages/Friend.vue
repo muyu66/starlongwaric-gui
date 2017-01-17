@@ -1,9 +1,9 @@
 <template>
     <div id="friend">
         <div class="panel panel-default" v-for="item in friend.friends">
-            <div class="panel-heading">{{ item }}</div>
+            <div class="panel-heading">{{ item.name }}</div>
             <div class="panel-body">
-                {{ item }}
+                {{ displayOnlineStatus(item.online) }}
                 <button class="btn btn-default" type="button" v-on:click="postFriendDelete(item)">删除好友</button>
             </div>
         </div>
@@ -33,13 +33,20 @@
             },
             postFriendDelete: function (id) {
                 this.$http.post(
-                    'http://www.slw.app/friend/delete', {id: id}, window.auth_header
+                    'http://www.slw.app/friend/delete', { id: id }, window.auth_header
                 ).then((response) => {
                     this.getFriend();
                 }, (response) => {
                     console.log(response);
                 });
             },
+            displayOnlineStatus: function (item) {
+                if (item.is_online) {
+                    return '在线';
+                } else {
+                    return item.time + '前';
+                }
+            }
         },
     }
 </script>
