@@ -5,9 +5,8 @@ exports.install = function (Vue, options) {
                 case 40101:
                     alert('账号或密码输入错误');
                     break;
-                case 40102:
+                default:
                     alert(error_msg);
-                    break;
             }
         }
     };

@@ -1,5 +1,5 @@
 <template>
-    <div id="login">
+    <div id="register">
         <div class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Email</label>
@@ -20,8 +20,17 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <button type="submit" v-on:click="postAuthLogin" class="btn btn-default">登录</button>
-                    <button type="submit" @click="goRegister" class="btn btn-default">注册</button>
+                    <div class="well well-lg">
+                        注意：目前处于删档版本中
+                    </div>
+                    <div class="well well-lg">
+                        协议：目前还在想
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" @click="postAuthRegister" class="btn btn-default">注册</button>
                 </div>
             </div>
         </div>
@@ -37,7 +46,7 @@
                 code_html: '',
             }
         },
-        name: 'login',
+        name: 'register',
         created: function () {
             this.getAuthCode();
         },
@@ -51,30 +60,15 @@
                     console.log(response);
                 });
             },
-            postAuthLogin: function () {
-                window.auth_email = this.email;
-                window.auth_password = this.password;
-                window.auth_header = {
-                    headers: {
-                        Authorization: 'Basic ' +
-                        btoa(window.auth_email + ':' + window.auth_password),
-                        Accept: 'application/json',
-                    }
-                };
+            postAuthRegister: function () {
                 this.$http.post(
-                    'http://www.slw.app/auth/login', {}, window.auth_header
+                    'http://www.slw.app/auth/register', { email: this.email, password: this.password }
                 ).then((response) => {
                     if (response.body.code == 200) {
                         /**
                          * 检测登录返回状态，成功则跳转
                          */
-                        this.$router.push('index');
-                    } else if (response.body.code == 40401) {
-                        let captain_name = '';
-                        do {
-                            captain_name = prompt("请输入舰长名称");
-                        } while (!captain_name);
-                        this.postFleet(captain_name);
+                        this.$router.push('login');
                     } else {
                         this.$exception.render(response.body.code, response.body.msg);
                     }
@@ -82,24 +76,10 @@
                     alert('连接服务器失败');
                 });
             },
-            goRegister: function () {
-                this.$router.push('register');
-            },
-            postFleet: function (name) {
-                this.$http.post(
-                    'http://www.slw.app/fleets', { name: name }, window.auth_header
-                ).then((response) => {
-                    this.$router.push('index');
-                }, (response) => {
-                    console.log(response);
-                });
-            },
         },
     }
 </script>
 
 <style>
-    #login {
 
-    }
 </style>
