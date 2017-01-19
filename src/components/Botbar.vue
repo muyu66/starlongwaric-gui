@@ -19,12 +19,12 @@
                         method: 'my_fleet'
                     },
                     {
-                        text: '维修',
-                        method: 'my_body',
-                    },
-                    {
                         text: '科技',
                         method: 'my_tech',
+                    },
+                    {
+                        text: '维修',
+                        method: 'my_body',
                     },
                     {
                         text: '指令',

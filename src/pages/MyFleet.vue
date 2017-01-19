@@ -6,7 +6,8 @@
             <li class="list-group-item">能源：{{ my_fleet.fuel }}</li>
             <li class="list-group-item">船员：{{ my_fleet.staff }}</li>
             <li class="list-group-item">军衔：{{ my_fleet.rank }}</li>
-            <li class="list-group-item">所在：{{ my_fleet.planet }}</li>
+            <li class="list-group-item">从属：{{ my_fleet.union }}</li>
+            <li class="list-group-item">所在：{{ my_fleet.planet }} （{{ my_fleet.planet_full }}）</li>
             <li class="list-group-item">战力：{{ my_fleet.power }}</li>
         </ul>
         <ul class="list-group">
