@@ -7,12 +7,12 @@
             <li class="list-group-item">船员：{{ my_fleet.staff }}</li>
             <li class="list-group-item">军衔：{{ my_fleet.rank }}</li>
             <li class="list-group-item">从属：{{ my_fleet.union }}</li>
-            <li class="list-group-item">所在：{{ my_fleet.planet }} （{{ my_fleet.planet_full }}）</li>
+            <li class="list-group-item">所在：{{ my_fleet.planet }} （{{ my_fleet.planet_full }} )</li>
             <li class="list-group-item">战力：{{ my_fleet.power }}</li>
         </ul>
         <ul class="list-group">
             <li class="list-group-item" v-for="item in my_fleet_staff">
-                {{ item.name }} {{ item.desc }}
+                {{ item.name }} {{ item.job_name }} {{ item.desc }}
             </li>
         </ul>
     </div>

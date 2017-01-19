@@ -13,7 +13,7 @@
                             </span>
                         </h4>
                         <p class="list-group-item-text">
-                            职业：{{ jobs[item.job] }}
+                            职业：{{ item.job_name }}
                             职业能力：{{ item.job_ability }}
                             智力：{{ item.intelligence }}
                             忠诚：{{ item.loyalty }}
@@ -57,9 +57,6 @@
                         text: '优先 躲避',
                         desc: '尽量避免冲突',
                     },
-                ],
-                jobs: [
-                    '警卫', '工程师', '指挥家', '绝地武士'
                 ],
             }
         },

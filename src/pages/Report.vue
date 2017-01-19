@@ -1,14 +1,15 @@
 <template>
     <div id="report">
         <ul class="nav nav-pills" role="tablist">
-            <li v-bind:class="{ active:seen_event_un_finish }"><a v-on:click="showEventsUnFinish">事件</a></li>
-            <li v-bind:class="{ active:seen_event_finish }"><a v-on:click="showEventsFinish">事件(已完成)</a></li>
-            <li v-bind:class="{ active:seen_fights }"><a v-on:click="showFights">战报</a></li>
+            <li :class="{ active:seen_event_un_finish }"><a @click="showEventsUnFinish">事件</a></li>
+            <li :class="{ active:seen_event_finish }"><a @click="showEventsFinish">事件(已完成)</a></li>
+            <li :class="{ active:seen_fights }"><a @click="showFights">战报</a></li>
         </ul>
 
         <div class="panel panel-default" v-for="item in report" v-if="seen_fights">
             <div class="panel-heading">
                 与 {{ item.enemy.name }} 交战, {{ results[item.result+1] }}
+                <span style="float:right; position:relative;">{{ item.updated_at }}</span>
             </div>
             <div class="panel-body">
                 {{ displayGet(item.result) }} 金币 {{ item.booty.gold }} 能源 {{ item.booty.fuel }}<br/>
@@ -21,16 +22,13 @@
             </div>
             <div class="panel-body">
                 描述: {{ event.standard.desc }}<br/>
-                指挥官: {{ event.commander }}<br/>
+                指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
                 <div v-if="!event.status">
                     <button class="btn" v-on:click="postEventResolve(event.id, 1)">
                         {{ displayButton(event.standard.event, 'yes') }}
                     </button>
                     <button class="btn" v-on:click="postEventResolve(event.id, 0)">
                         {{ displayButton(event.standard.event, 'no') }}
-                    </button>
-                    <button class="btn" v-on:click="postEventResolve(event.id, 2)">
-                        委托给指挥官
                     </button>
                 </div>
             </div>
@@ -42,16 +40,13 @@
             </div>
             <div class="panel-body">
                 描述: {{ event.standard.desc }}<br/>
-                指挥官: {{ event.commander }}<br/>
+                指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
                 <div v-if="!event.status">
                     <button class="btn" v-on:click="postEventResolve(event.id, 1)">
                         {{ displayButton(event.standard.event, 'yes') }}
                     </button>
                     <button class="btn" v-on:click="postEventResolve(event.id, 0)">
                         {{ displayButton(event.standard.event, 'no') }}
-                    </button>
-                    <button class="btn" v-on:click="postEventResolve(event.id, 2)">
-                        委托给指挥官
                     </button>
                 </div>
             </div>

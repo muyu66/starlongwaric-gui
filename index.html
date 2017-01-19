@@ -30,8 +30,8 @@
         });
     }
     function ajax(url, func) {
-        var data = null;
-        var xhr = new XMLHttpRequest();
+        let data = null;
+        let xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
