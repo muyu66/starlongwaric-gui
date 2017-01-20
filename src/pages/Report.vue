@@ -104,11 +104,13 @@
                 });
             },
             displayTitle: function (status) {
-                if (status) {
-                    return '(已完成)'
-                }
-                else {
-                    return '(待处理)'
+                switch (status) {
+                    case -1:
+                        return '(处理中)';
+                    case 0:
+                        return '(未处理)';
+                    case 1:
+                        return '(已完成)';
                 }
             },
             displayButton: function (event, button) {
@@ -133,9 +135,10 @@
                 this.$http.post(
                     'http://www.slw.app/event/resolve', { id: id, choose: choose }, window.auth_header
                 ).then((response) => {
-                    this.getFights();
                     this.getEventUnFinish();
-                    this.getEventFinish();
+                    setTimeout(function () {
+                        this.getEventUnFinish()
+                    }.bind(this), 5000);
                 }, (response) => {
                     console.log(response);
                 });
@@ -144,16 +147,19 @@
                 this.seen_event_un_finish = true;
                 this.seen_event_finish = false;
                 this.seen_fights = false;
+                this.getEventUnFinish();
             },
             showEventsFinish: function () {
                 this.seen_event_un_finish = false;
                 this.seen_event_finish = true;
                 this.seen_fights = false;
+                this.getEventFinish();
             },
             showFights: function () {
                 this.seen_event_un_finish = false;
                 this.seen_event_finish = false;
                 this.seen_fights = true;
+                this.getFights();
             },
         }
     }
