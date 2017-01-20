@@ -10,7 +10,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-8">
-                    <input v-on:keyup.enter="postAuthLogin" v-model="password" type="password" class="form-control">
+                    <input @keyup.enter="postAuthLogin" v-model="password" type="password" class="form-control">
                 </div>
             </div>
             <div class="form-group">

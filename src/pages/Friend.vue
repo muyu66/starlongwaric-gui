@@ -4,7 +4,7 @@
             <div class="panel-heading">{{ item.name }}</div>
             <div class="panel-body">
                 {{ displayOnlineStatus(item.online) }}
-                <button class="btn btn-default" type="button" v-on:click="postFriendDelete(item)">删除好友</button>
+                <button class="btn btn-default" type="button" @click="postFriendDelete(item)">删除好友</button>
             </div>
         </div>
     </div>

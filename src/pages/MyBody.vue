@@ -6,7 +6,7 @@
                     <small>{{ item.widget.desc }}</small>
                 </h4>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success" v-bind:style="{ width: item.health + '%' }">
+                    <div class="progress-bar progress-bar-success" :style="{ width: item.health + '%' }">
                         {{ item.health }}%
                     </div>
                 </div>

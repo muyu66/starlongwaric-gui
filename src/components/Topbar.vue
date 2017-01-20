@@ -1,7 +1,7 @@
 <template>
     <div id="topbar" class="full">
-        <button class="btn btn-default" type="button" v-on:click="goFriend()">盟友</button>
-        <button class="btn btn-default" type="button" v-on:click="goMessage()">
+        <button class="btn btn-default" type="button" @click="goFriend()">盟友</button>
+        <button class="btn btn-default" type="button" @click="goMessage()">
             消息 <span class="badge">{{ un_read_count.count }}</span>
         </button>
         <button class="btn btn-default" type="button">
@@ -10,6 +10,8 @@
         <button class="btn btn-default" type="button">
             能源 <span class="badge">{{ my_fleet.fuel }}</span>
         </button>
+        <button class="btn btn-default" type="button">{{ time }}</button>
+
     </div>
 </template>
 
@@ -20,11 +22,13 @@
             return {
                 my_fleet: '',
                 un_read_count: '',
+                time: '',
             }
         },
         created: function () {
             this.getFleetsMy();
             this.getMessageUnReadCount();
+            this.getTime();
         },
         methods: {
             getFleetsMy: function () {
@@ -41,6 +45,15 @@
                     'http://www.slw.app/message/un-read-count', window.auth_header
                 ).then((response) => {
                     this.un_read_count = response.body;
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            getTime: function () {
+                this.$http.get(
+                    'http://www.slw.app/time', window.auth_header
+                ).then((response) => {
+                    this.time = response.body.time;
                 }, (response) => {
                     console.log(response);
                 });

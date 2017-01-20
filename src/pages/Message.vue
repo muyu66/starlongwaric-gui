@@ -1,8 +1,8 @@
 <template>
     <div id="command">
         <ul class="nav nav-pills" role="tablist">
-            <li v-bind:class="{ active:seen_un_read }"><a v-on:click="switchTab">未读</a></li>
-            <li v-bind:class="{ active:seen_read }"><a v-on:click="switchTab">已读</a></li>
+            <li :class="{ active:seen_un_read }"><a @click="switchTab">未读</a></li>
+            <li :class="{ active:seen_read }"><a @click="switchTab">已读</a></li>
         </ul>
 
         <div class="panel panel-default" v-for="item in un_read" v-if="seen_un_read">
@@ -11,14 +11,14 @@
                 {{ item.content }}
 
                 <button v-if="item.button=='yes_or_no'" class="btn btn-default" type="button"
-                        v-on:click="postMessageAgree(item.func_id,item.from,item.slw_key)">同意
+                        @click="postMessageAgree(item.func_id,item.from,item.slw_key)">同意
                 </button>
                 <button v-if="item.button=='yes_or_no'" class="btn btn-default" type="button"
-                        v-on:click="postMessageRead(item.slw_key)">拒绝
+                        @click="postMessageRead(item.slw_key)">拒绝
                 </button>
 
                 <button v-if="item.button=='read'" class="btn btn-default" type="button"
-                        v-on:click="postMessageRead(item.slw_key)">知晓
+                        @click="postMessageRead(item.slw_key)">知晓
                 </button>
             </div>
         </div>

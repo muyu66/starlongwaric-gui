@@ -24,10 +24,10 @@
                 描述: {{ event.standard.desc }}<br/>
                 指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
                 <div v-if="!event.status">
-                    <button class="btn" v-on:click="postEventResolve(event.id, 1)">
+                    <button class="btn" @click="postEventResolve(event.id, 1)">
                         {{ displayButton(event.standard.event, 'yes') }}
                     </button>
-                    <button class="btn" v-on:click="postEventResolve(event.id, 0)">
+                    <button class="btn" @click="postEventResolve(event.id, 0)">
                         {{ displayButton(event.standard.event, 'no') }}
                     </button>
                 </div>
@@ -42,10 +42,10 @@
                 描述: {{ event.standard.desc }}<br/>
                 指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
                 <div v-if="!event.status">
-                    <button class="btn" v-on:click="postEventResolve(event.id, 1)">
+                    <button class="btn" @click="postEventResolve(event.id, 1)">
                         {{ displayButton(event.standard.event, 'yes') }}
                     </button>
-                    <button class="btn" v-on:click="postEventResolve(event.id, 0)">
+                    <button class="btn" @click="postEventResolve(event.id, 0)">
                         {{ displayButton(event.standard.event, 'no') }}
                     </button>
                 </div>
