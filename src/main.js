@@ -3,10 +3,12 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App'
 import Exception from './commons/Exception'
+import Audio from './commons/Audio'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(Exception);
+Vue.use(Audio);
 
 import Index from './pages/Index'
 import Login from './pages/Login'
@@ -33,7 +35,7 @@ const router = new VueRouter({
         {
             path: '/login',
             component: Login,
-            meta: { title: '登录 - 星际的远征' },
+            meta: { title: '登舰手续 - 星际的远征' },
         },
         {
             path: '/register',

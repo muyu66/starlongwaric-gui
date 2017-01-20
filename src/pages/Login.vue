@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <div v-html="code_html"></div>
+                    <div v-html="code_html" @click="audioWelcome"></div>
                 </div>
             </div>
             <div class="form-group">
@@ -42,6 +42,9 @@
             this.getAuthCode();
         },
         methods: {
+            audioWelcome: function () {
+                this.$audio.play('welcome');
+            },
             getAuthCode: function () {
                 this.$http.get(
                     'http://www.slw.app/auth/code'
@@ -85,6 +88,10 @@
             goRegister: function () {
                 this.$router.push('register');
             },
+            /**
+             * 创建新舰队
+             * @param name
+             */
             postFleet: function (name) {
                 this.$http.post(
                     'http://www.slw.app/fleets', { name: name }, window.auth_header
