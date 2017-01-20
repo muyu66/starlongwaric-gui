@@ -121,7 +121,7 @@
             },
             displayGet: function (get) {
                 switch (get) {
-                    case - 1:
+                    case -1:
                         return '损失';
                     case 0:
                         return '获取';
@@ -131,7 +131,7 @@
             },
             postEventResolve: function (id, choose) {
                 this.$http.post(
-                    'http://www.slw.app/event/resolve', {id: id, choose: choose}, window.auth_header
+                    'http://www.slw.app/event/resolve', { id: id, choose: choose }, window.auth_header
                 ).then((response) => {
                     this.getFights();
                     this.getEventUnFinish();
