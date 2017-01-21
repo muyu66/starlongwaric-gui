@@ -44,6 +44,7 @@
         methods: {
             audioWelcome: function () {
                 this.$audio.play('welcome');
+                this.generate();
             },
             getAuthCode: function () {
                 this.$http.get(this.$api.get('auth/code')).then((response) => {
@@ -93,6 +94,31 @@
                 this.$http.post(this.$api.get('fleets'), { name: name }, window.auth_header
                 ).then((response) => {
                     this.$router.push('index');
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            /**
+             * 专用于 验证码
+             */
+            generate: function () {
+                document.getElementById('loading').style.display = '';
+                document.getElementById('check_box').style.display = 'none';
+                document.getElementById('check_right').style.display = 'none';
+
+                this.$http.get(this.$api.get('auth/code-generate')).then((response) => {
+                    setTimeout(function () {
+                        this.valid();
+                    }.bind(this), response.body * 1000);
+                }, (response) => {
+                    console.log(response);
+                });
+            },
+            valid: function () {
+                this.$http.get(this.$api.get('auth/code-valid')).then((response) => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('check_box').style.display = 'none';
+                    document.getElementById('check_right').style.display = '';
                 }, (response) => {
                     console.log(response);
                 });

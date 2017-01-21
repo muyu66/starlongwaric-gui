@@ -11,41 +11,5 @@
 <div class="container-fluid">
     <div id="app"></div>
 </div>
-
-<script>
-    /**
-     * 专用于 验证码
-     */
-    function generate() {
-        document.getElementById('loading').style.display = '';
-        document.getElementById('check_box').style.display = 'none';
-        document.getElementById('check_right').style.display = 'none';
-        ajax("http://www.slw.app/auth/code-generate", function (data) {
-            setTimeout("valid()", data * 1000);
-        });
-    }
-
-    function valid() {
-        ajax("http://www.slw.app/auth/code-valid", function (data) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('check_box').style.display = 'none';
-            document.getElementById('check_right').style.display = '';
-        });
-    }
-
-    function ajax(url, func) {
-        var data = null;
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                func(this.responseText);
-            }
-        });
-        xhr.open("GET", url);
-        xhr.send(data);
-    }
-</script>
-
 </body>
 </html>
