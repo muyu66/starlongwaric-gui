@@ -24,7 +24,7 @@
         methods: {
             getFriend: function () {
                 this.$http.get(
-                    'http://www.slw.app/friend', window.auth_header
+                    this.$api.get('friend'), window.auth_header
                 ).then((response) => {
                     this.friend = response.body;
                 }, (response) => {
@@ -33,7 +33,7 @@
             },
             postFriendDelete: function (id) {
                 this.$http.post(
-                    'http://www.slw.app/friend/delete', { id: id }, window.auth_header
+                    this.$api.get('friend/delete'), { id: id }, window.auth_header
                 ).then((response) => {
                     this.getFriend();
                 }, (response) => {

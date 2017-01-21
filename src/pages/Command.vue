@@ -67,8 +67,7 @@
         },
         methods: {
             getBody: function () {
-                this.$http.get(
-                    'http://www.slw.app/fleet_bodies', window.auth_header
+                this.$http.get(this.$api.get('fleet_bodies'), window.auth_header
                 ).then((response) => {
                     this.my_body = response.body;
                 }, (response) => {
@@ -76,8 +75,7 @@
                 });
             },
             getFleetStaff: function () {
-                this.$http.get(
-                    'http://www.slw.app/staff/my', window.auth_header
+                this.$http.get(this.$api.get('staff/my'), window.auth_header
                 ).then((response) => {
                     this.my_fleet_staff = response.body;
                 }, (response) => {
@@ -91,7 +89,7 @@
                 }
 
                 this.$http.post(
-                    'http://www.slw.app/staff/appoint-commander', { commander_id: id }, window.auth_header
+                    this.$api.get('staff/appoint-commander'), { commander_id: id }, window.auth_header
                 ).then((response) => {
                     this.getFleetStaff();
                 }, (response) => {
@@ -100,7 +98,7 @@
             },
             getFleetConfigCommanderStyle: function () {
                 this.$http.get(
-                    'http://www.slw.app/fleet_configs/commander_style', window.auth_header
+                    this.$api.get('fleet_configs/commander_style'), window.auth_header
                 ).then((response) => {
                     this.commander_style = response.body.commander_style;
                 }, (response) => {
@@ -109,7 +107,7 @@
             },
             postFleetConfigCommanderStyle: function (style) {
                 this.$http.post(
-                    'http://www.slw.app/fleet_configs/commander_style', { style: style }, window.auth_header
+                    this.$api.get('fleet_configs/commander_style'), { style: style }, window.auth_header
                 ).then((response) => {
                     if (response.body.code == 422) {
                         alert(response.body.msg);

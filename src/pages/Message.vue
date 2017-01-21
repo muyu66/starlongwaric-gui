@@ -48,12 +48,12 @@
         },
         methods: {
             switchTab: function () {
-                this.seen_un_read = ! this.seen_un_read;
-                this.seen_read = ! this.seen_read;
+                this.seen_un_read = !this.seen_un_read;
+                this.seen_read = !this.seen_read;
             },
             getMessageUnRead: function () {
                 this.$http.get(
-                    'http://www.slw.app/message/un-read', window.auth_header
+                    this.$api.get('message/un-read'), window.auth_header
                 ).then((response) => {
                     this.un_read = response.body;
                 }, (response) => {
@@ -62,7 +62,7 @@
             },
             getMessageRead: function () {
                 this.$http.get(
-                    'http://www.slw.app/message/read', window.auth_header
+                    this.$api.get('message/read'), window.auth_header
                 ).then((response) => {
                     this.read = response.body;
                 }, (response) => {
@@ -71,7 +71,7 @@
             },
             postMessageAgree: function (func_id, from, key) {
                 this.$http.post(
-                    'http://www.slw.app/message/agree', {
+                    this.$api.get('message/agree'), {
                         func_id: func_id,
                         from: from,
                         key: key,
@@ -85,7 +85,7 @@
             },
             postMessageRead: function (key) {
                 this.$http.post(
-                    'http://www.slw.app/message/read', {
+                    this.$api.get('message/read'), {
                         key: key,
                     }, window.auth_header
                 ).then((response) => {

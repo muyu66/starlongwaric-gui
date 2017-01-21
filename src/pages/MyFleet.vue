@@ -35,7 +35,7 @@
         methods: {
             getFleetMy: function () {
                 this.$http.get(
-                    'http://www.slw.app/fleets/1', window.auth_header
+                    this.$api.get('fleets/1'), window.auth_header
                 ).then((response) => {
                     this.my_fleet = response.body;
                 }, (response) => {
@@ -44,7 +44,7 @@
             },
             getFleetStaff: function () {
                 this.$http.get(
-                    'http://www.slw.app/staff/my', window.auth_header
+                    this.$api.get('staff/my'), window.auth_header
                 ).then((response) => {
                     this.my_fleet_staff = response.body;
                 }, (response) => {

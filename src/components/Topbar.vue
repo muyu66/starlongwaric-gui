@@ -33,7 +33,7 @@
         methods: {
             getFleetsMy: function () {
                 this.$http.get(
-                    'http://www.slw.app/fleets/1', window.auth_header
+                    this.$api.get('fleets/1'), window.auth_header
                 ).then((response) => {
                     this.my_fleet = response.body;
                 }, (response) => {
@@ -42,7 +42,7 @@
             },
             getMessageUnReadCount: function () {
                 this.$http.get(
-                    'http://www.slw.app/message/un-read-count', window.auth_header
+                    this.$api.get('message/un-read-count'), window.auth_header
                 ).then((response) => {
                     this.un_read_count = response.body;
                 }, (response) => {
@@ -51,7 +51,7 @@
             },
             getTime: function () {
                 this.$http.get(
-                    'http://www.slw.app/time', window.auth_header
+                    this.$api.get('time'), window.auth_header
                 ).then((response) => {
                     this.time = response.body.time;
                 }, (response) => {

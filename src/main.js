@@ -4,11 +4,13 @@ import VueResource from 'vue-resource'
 import App from './App'
 import Exception from './commons/Exception'
 import Audio from './commons/Audio'
+import Api from './commons/Api'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(Exception);
 Vue.use(Audio);
+Vue.use(Api);
 
 import Index from './pages/Index'
 import Login from './pages/Login'

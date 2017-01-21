@@ -46,9 +46,7 @@
                 this.$audio.play('welcome');
             },
             getAuthCode: function () {
-                this.$http.get(
-                    'http://www.slw.app/auth/code'
-                ).then((response) => {
+                this.$http.get(this.$api.get('/auth/code')).then((response) => {
                     this.code_html = response.body;
                 }, (response) => {
                     console.log(response);
@@ -64,8 +62,7 @@
                         Accept: 'application/json',
                     }
                 };
-                this.$http.post(
-                    'http://www.slw.app/auth/login', {}, window.auth_header
+                this.$http.post(this.$api.get('/auth/login'), {}, window.auth_header
                 ).then((response) => {
                     if (response.body.code == 200) {
                         /**
@@ -93,8 +90,7 @@
              * @param name
              */
             postFleet: function (name) {
-                this.$http.post(
-                    'http://www.slw.app/fleets', { name: name }, window.auth_header
+                this.$http.post(this.$api.get('/fleets'), { name: name }, window.auth_header
                 ).then((response) => {
                     this.$router.push('index');
                 }, (response) => {

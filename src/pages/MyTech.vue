@@ -27,7 +27,7 @@
         methods: {
             getTeches: function () {
                 this.$http.get(
-                    'http://www.slw.app/fleet_teches', window.auth_header
+                    this.$api.get('fleet_teches'), window.auth_header
                 ).then((response) => {
                     this.my_tech = response.body;
                 }, (response) => {
@@ -36,7 +36,7 @@
             },
             postTeches: function (id, num) {
                 this.$http.post(
-                    'http://www.slw.app/fleet_teches', { id: id, num: num }, window.auth_header
+                    this.$api.get('fleet_teches'), { id: id, num: num }, window.auth_header
                 ).then((response) => {
                     this.getTeches();
                 }, (response) => {
@@ -45,7 +45,7 @@
             },
             postTechesAll: function (num) {
                 this.$http.post(
-                    'http://www.slw.app/fleet_teches/all', { num: num }, window.auth_header
+                    this.$api.get('fleet_teches/all'), { num: num }, window.auth_header
                 ).then((response) => {
                     this.getTeches();
                 }, (response) => {

@@ -78,7 +78,7 @@
         methods: {
             getFights: function () {
                 this.$http.get(
-                    'http://www.slw.app/fight_logs', window.auth_header
+                    this.$api.get('fight_logs'), window.auth_header
                 ).then((response) => {
                     this.report = response.body;
                 }, (response) => {
@@ -87,7 +87,7 @@
             },
             getEventFinish: function () {
                 this.$http.get(
-                    'http://www.slw.app/event/finish', window.auth_header
+                    this.$api.get('event/finish'), window.auth_header
                 ).then((response) => {
                     this.event_finish = response.body;
                 }, (response) => {
@@ -96,7 +96,7 @@
             },
             getEventUnFinish: function () {
                 this.$http.get(
-                    'http://www.slw.app/event/un-finish', window.auth_header
+                    this.$api.get('event/un-finish'), window.auth_header
                 ).then((response) => {
                     this.event_un_finish = response.body;
                 }, (response) => {
@@ -133,7 +133,7 @@
             },
             postEventResolve: function (id, choose) {
                 this.$http.post(
-                    'http://www.slw.app/event/resolve', { id: id, choose: choose }, window.auth_header
+                    this.$api.get('event/resolve'), { id: id, choose: choose }, window.auth_header
                 ).then((response) => {
                     this.getEventUnFinish();
                     setTimeout(function () {

@@ -31,7 +31,7 @@
         methods: {
             getBodies: function () {
                 this.$http.get(
-                    'http://www.slw.app/fleet_bodies', window.auth_header
+                    this.$api.get('fleet_bodies'), window.auth_header
                 ).then((response) => {
                     this.my_body = response.body;
                 }, (response) => {
@@ -40,7 +40,7 @@
             },
             postBodies: function (id) {
                 this.$http.post(
-                    'http://www.slw.app/fleet_bodies', { id: id }, window.auth_header
+                    this.$api.get('fleet_bodies'), { id: id }, window.auth_header
                 ).then((response) => {
                     this.getBodies();
                 }, (response) => {
@@ -49,7 +49,7 @@
             },
             postBodiesAll: function () {
                 this.$http.post(
-                    'http://www.slw.app/fleet_bodies/all', {}, window.auth_header
+                    this.$api.get('fleet_bodies/all'), {}, window.auth_header
                 ).then((response) => {
                     this.getBodies();
                 }, (response) => {

@@ -53,7 +53,7 @@
         methods: {
             getAuthCode: function () {
                 this.$http.get(
-                    'http://www.slw.app/auth/code'
+                    this.$api.get('auth/code')
                 ).then((response) => {
                     this.code_html = response.body;
                 }, (response) => {
@@ -62,7 +62,7 @@
             },
             postAuthRegister: function () {
                 this.$http.post(
-                    'http://www.slw.app/auth/register', { email: this.email, password: this.password }
+                    this.$api.get('auth/register'), { email: this.email, password: this.password }
                 ).then((response) => {
                     if (response.body.code == 200) {
                         /**
