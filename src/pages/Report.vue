@@ -15,23 +15,27 @@
                 {{ displayGet(item.result) }} 金币 {{ item.booty.gold }} 能源 {{ item.booty.fuel }}<br/>
             </div>
         </div>
-        <div class="panel panel-default" v-for="event in event_un_finish" v-if="seen_event_un_finish">
-            <div class="panel-heading">
-                事件 {{ event.standard.name }} {{ displayTitle(event.status) }}
-                <span style="float:right; position:relative;">{{ event.updated_at }}</span>
-            </div>
-            <div class="panel-body">
-                描述: {{ event.standard.desc }}<br/>
-                指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
-                <div v-if="!event.status">
-                    <button class="btn" @click="postEventResolve(event.id, 1)">
-                        {{ displayButton(event.standard.event, 'yes') }}
-                    </button>
-                    <button class="btn" @click="postEventResolve(event.id, 0)">
-                        {{ displayButton(event.standard.event, 'no') }}
-                    </button>
+        <div v-if="seen_event_un_finish">
+            <div class="panel panel-default" v-for="event in event_un_finish.data">
+                <div class="panel-heading">
+                    事件 {{ event.standard.name }} {{ displayTitle(event.status) }}
+                    <span style="float:right; position:relative;">{{ event.updated_at }}</span>
+                </div>
+                <div class="panel-body">
+                    描述: {{ event.standard.desc }}<br/>
+                    指挥官: {{ event.staff ? event.staff.name : '舰长' }}<br/>
+                    <div v-if="!event.status">
+                        <button class="btn" @click="postEventResolve(event.id, 1)">
+                            {{ displayButton(event.standard.event, 'yes') }}
+                        </button>
+                        <button class="btn" @click="postEventResolve(event.id, 0)">
+                            {{ displayButton(event.standard.event, 'no') }}
+                        </button>
+                    </div>
                 </div>
             </div>
+            <paginate @goPage="updateEventUnFinish" :current_page='event_un_finish.last_page'
+                      :last_page='event_un_finish.last_page'></paginate>
         </div>
         <div class="panel panel-default" v-for="event in event_finish" v-if="seen_event_finish">
             <div class="panel-heading">
@@ -55,13 +59,19 @@
 </template>
 
 <script>
+    import Paginate from '../components/Paginate'
+
     export default {
         name: 'report',
+        components: {
+            Paginate,
+        },
         data () {
             return {
                 report: '',
                 event_un_finish: '',
                 event_finish: '',
+                total: 0,
                 results: [
                     '失败', '平局', '胜利'
                 ],
@@ -76,6 +86,9 @@
             this.getEventFinish();
         },
         methods: {
+            updateEventUnFinish: function (current) {
+                this.getEventUnFinish(current);
+            },
             getFights: function () {
                 this.$http.get(
                     this.$api.get('fight_logs'), window.auth_header
@@ -94,9 +107,9 @@
                     console.log(response);
                 });
             },
-            getEventUnFinish: function () {
+            getEventUnFinish: function (page = 1) {
                 this.$http.get(
-                    this.$api.get('event/un-finish'), window.auth_header
+                    this.$api.get('event/un-finish?page=' + page), window.auth_header
                 ).then((response) => {
                     this.event_un_finish = response.body;
                 }, (response) => {
@@ -136,9 +149,10 @@
                     this.$api.get('event/resolve'), { id: id, choose: choose }, window.auth_header
                 ).then((response) => {
                     this.getEventUnFinish();
-                    setTimeout(function () {
-                        this.getEventUnFinish()
-                    }.bind(this), 5000);
+//                     应对队列
+//                    setTimeout(function () {
+//                        this.getEventUnFinish()
+//                    }.bind(this), 5000);
                 }, (response) => {
                     console.log(response);
                 });

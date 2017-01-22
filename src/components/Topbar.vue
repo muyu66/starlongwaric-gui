@@ -11,7 +11,6 @@
             能源 <span class="badge">{{ my_fleet.fuel }}</span>
         </button>
         <button class="btn btn-default" type="button">{{ time }}</button>
-
     </div>
 </template>
 
