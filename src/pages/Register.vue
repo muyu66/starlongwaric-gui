@@ -21,7 +21,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
                     <div class="well well-lg">
-                        注意：目前处于删档版本中
+                        注意：目前处于 Alpha 版本中，游戏记录随时可能被删除
                     </div>
                     <div class="well well-lg">
                         协议：目前还在想
