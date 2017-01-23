@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <div v-html="code_html"></div>
+                    <div v-html="code_html" @click="audioWelcome"></div>
                 </div>
             </div>
             <div class="form-group">
@@ -51,6 +51,10 @@
             this.getAuthCode();
         },
         methods: {
+            audioWelcome: function () {
+                this.$audio.play('welcome');
+                this.generate();
+            },
             getAuthCode: function () {
                 this.$http.get(
                     this.$api.get('auth/code')
